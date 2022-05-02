@@ -13,7 +13,7 @@ import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
 import com.vijay.jsonwizard.domain.Form;
 
 import org.json.JSONObject;
-import org.smartregister.barebones.R;
+import org.smartregister.ld.R;
 
 
 public class TestRegisterActivity extends AppCompatActivity {

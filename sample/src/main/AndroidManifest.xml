@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.smartregister.barebones">
+    package="org.smartregister.ld">
 
     <application
         android:name="org.smartregister.application.SampleApplication"
@@ -24,7 +24,7 @@
         </activity>
         <activity android:name="com.vijay.jsonwizard.activities.JsonWizardFormActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name="org.smartregister.chw.barebones.activity.BaseTestProfileActivity"></activity>
+        <activity android:name="org.smartregister.chw.ld.activity.BaseLDProfileActivity"></activity>
     </application>
 
 </manifest>
