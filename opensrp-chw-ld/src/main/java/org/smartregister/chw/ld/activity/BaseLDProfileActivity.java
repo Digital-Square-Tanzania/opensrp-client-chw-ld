@@ -84,7 +84,7 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
 
     @Override
     protected void onCreation() {
-        setContentView(R.layout.activity_LD_profile);
+        setContentView(R.layout.activity_ld_profile);
         Toolbar toolbar = findViewById(R.id.collapsing_toolbar);
         setSupportActionBar(toolbar);
         String baseEntityId = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID);

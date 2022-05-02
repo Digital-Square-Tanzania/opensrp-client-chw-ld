@@ -56,7 +56,7 @@ public class BaseLDCallDialogFragment extends DialogFragment implements BaseLDCa
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
-        ViewGroup dialogView = (ViewGroup) inflater.inflate(R.layout.LD_member_call_widget_dialog_fragment, container, false);
+        ViewGroup dialogView = (ViewGroup) inflater.inflate(R.layout.ld_member_call_widget_dialog_fragment, container, false);
         setUpPosition();
         if (listener == null) {
             listener = new BaseLDCallWidgetDialogListener(this);

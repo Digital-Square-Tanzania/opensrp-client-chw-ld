@@ -191,7 +191,7 @@
                 android:id="@+id/record_visit_ld"
                 layout="@layout/view_record_ld" />
 
-            <include layout="@layout/content_LD_profile" />
+            <include layout="@layout/content_ld_profile" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
