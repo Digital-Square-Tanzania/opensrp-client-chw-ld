@@ -45,4 +45,8 @@
     <dimen name="call_widget_font3">18sp</dimen>
     <dimen name="copy_to_clipboard_header_text_size">20sp</dimen>
     <dimen name="copy_to_clipboard_message_text_size">14sp</dimen>
+    <dimen name="tool_bar_size">55dp</dimen>
+    <dimen name="tool_bar_image">25dp</dimen>
+    <dimen name="dialog_toolbar_close_margin">10dp</dimen>
+    <dimen name="tool_bar_title">20sp</dimen>
 </resources>
