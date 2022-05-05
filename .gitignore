@@ -19,3 +19,8 @@ project.properties
 .settings
 build/
 jacoco.exec
+caches
+daemon
+github.properties
+native
+wrapper
