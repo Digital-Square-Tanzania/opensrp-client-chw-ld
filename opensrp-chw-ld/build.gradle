@@ -94,7 +94,7 @@ def getVersionName = { ->
 }
 
 def getArtificatId = { ->
-    return "opensrp-chw-lb" // Library name
+    return "opensrp-chw-ld" // Library name
 }
 
 publishing {
