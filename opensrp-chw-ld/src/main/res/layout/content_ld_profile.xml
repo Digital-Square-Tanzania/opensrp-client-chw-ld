@@ -248,7 +248,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/labour_progress_image"
                 android:gravity="center_horizontal"
-                android:text="Labour Progress"
+                android:text="@string/labour_progress"
                 android:textColor="@android:color/black" />
 
             <org.smartregister.view.customcontrols.CustomFontTextView
@@ -259,7 +259,7 @@
                 android:layout_below="@+id/textview_labour_progress"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/labour_progress_image"
-                android:text="View Labour Progress"
+                android:text="@string/view_labour_progress"
                 android:textColor="@android:color/darker_gray" />
 
         </RelativeLayout>

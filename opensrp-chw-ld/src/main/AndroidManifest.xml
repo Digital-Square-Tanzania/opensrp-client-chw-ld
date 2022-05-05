@@ -1,6 +1,14 @@
-<manifest package="org.smartregister.ld"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.smartregister.ld">
+
+    <application>
+        <activity
+            android:name="org.smartregister.chw.ld.activity.BaseLabourProgressViewActivity"
+            android:exported="false" />
+    </application>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
 </manifest>
