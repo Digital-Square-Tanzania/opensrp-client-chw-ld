@@ -19,6 +19,8 @@ public interface LDProfileContract {
 
         void openFamilyDueServices();
 
+        void openLabourProgress();
+
         void showProgressBar(boolean status);
 
         void recordAnc(MemberObject memberObject);
