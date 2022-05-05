@@ -23,16 +23,15 @@
         tools:text="Recorded At: 10/10/202: 10:00 AM" />
     <ImageButton
         android:id="@+id/edit_progress"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_edit_white"
         android:tint="@color/accent"
-        android:background="null"
-        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/recorded_at"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:contentDescription="Edit Button" />
+        android:contentDescription="Edit Button"/>
 
     <org.smartregister.view.customcontrols.CustomFontTextView
         android:id="@+id/descriptionTitle"
