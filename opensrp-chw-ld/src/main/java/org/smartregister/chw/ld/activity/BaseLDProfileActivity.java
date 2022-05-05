@@ -61,6 +61,7 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
     protected RelativeLayout rlUpcomingServices;
     protected RelativeLayout rlFamilyServicesDue;
     protected RelativeLayout visitStatus;
+    protected RelativeLayout rlLabourProgress;
     protected ImageView imageViewCross;
     protected TextView textViewUndo;
     protected RelativeLayout rlLDPositiveDate;
@@ -72,6 +73,9 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
     protected LinearLayout recordVisits;
     protected TextView textViewVisitDoneEdit;
     protected TextView textViewRecordAncNotDone;
+    protected TextView textViewLabourProgressTitle;
+    protected TextView textViewLabourProgressSubTitle;
+
 
     private ProgressBar progressBar;
     protected BaseLDFloatingMenu baseLDFloatingMenu;
@@ -131,6 +135,10 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
         textViewUndo = findViewById(R.id.textview_undo);
         imageView = findViewById(R.id.imageview_profile);
 
+        textViewLabourProgressTitle = findViewById(R.id.textview_labour_progress);
+        textViewLabourProgressSubTitle = findViewById(R.id.tv_view_labour_progress);
+        rlLabourProgress = findViewById(R.id.rlLabourProgress);
+
         textViewRecordAncNotDone.setOnClickListener(this);
         textViewVisitDoneEdit.setOnClickListener(this);
         rlLastVisit.setOnClickListener(this);
@@ -140,6 +148,7 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
         textViewRecordLD.setOnClickListener(this);
         textViewRecordAnc.setOnClickListener(this);
         textViewUndo.setOnClickListener(this);
+        rlLabourProgress.setOnClickListener(this);
 
         imageRenderHelper = new ImageRenderHelper(this);
         memberObject = LDDao.getMember(baseEntityId);
@@ -176,6 +185,8 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
             this.openUpcomingService();
         } else if (id == R.id.rlFamilyServicesDue) {
             this.openFamilyDueServices();
+        }else if (id == R.id.rlLabourProgress){
+            this.openLabourProgress();
         }
     }
 
@@ -300,6 +311,11 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
 
     @Override
     public void openFamilyDueServices() {
+        //implement
+    }
+
+    @Override
+    public void openLabourProgress(){
         //implement
     }
 
