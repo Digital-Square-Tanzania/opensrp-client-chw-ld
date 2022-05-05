@@ -1,6 +1,6 @@
 package org.smartregister.chw.ld.interactor;
 
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 
 import org.smartregister.chw.ld.contract.LDProfileContract;
 import org.smartregister.chw.ld.domain.MemberObject;
