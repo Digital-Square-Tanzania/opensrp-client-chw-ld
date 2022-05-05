@@ -50,5 +50,7 @@
     <string name="edit">EDIT</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="labour_progress">Labour Progress</string>
+    <string name="view_labour_progress">View Labour Progress</string>
 
 </resources>

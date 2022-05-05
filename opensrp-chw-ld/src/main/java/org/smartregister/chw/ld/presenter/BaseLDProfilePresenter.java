@@ -1,7 +1,7 @@
 package org.smartregister.chw.ld.presenter;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import org.smartregister.chw.ld.contract.LDProfileContract;
 import org.smartregister.chw.ld.domain.MemberObject;
