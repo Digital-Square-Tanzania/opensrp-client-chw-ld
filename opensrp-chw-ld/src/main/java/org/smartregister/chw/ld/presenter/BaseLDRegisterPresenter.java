@@ -15,7 +15,7 @@ public class BaseLDRegisterPresenter implements LDRegisterContract.Presenter, LD
     public static final String TAG = BaseLDRegisterPresenter.class.getName();
 
     protected WeakReference<LDRegisterContract.View> viewReference;
-    private LDRegisterContract.Interactor interactor;
+    private final LDRegisterContract.Interactor interactor;
     protected LDRegisterContract.Model model;
 
     public BaseLDRegisterPresenter(LDRegisterContract.View view, LDRegisterContract.Model model, LDRegisterContract.Interactor interactor) {

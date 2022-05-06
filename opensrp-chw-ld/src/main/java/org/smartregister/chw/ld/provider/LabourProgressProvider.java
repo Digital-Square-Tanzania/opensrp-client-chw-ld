@@ -28,9 +28,9 @@ import androidx.recyclerview.widget.RecyclerView;
 public class LabourProgressProvider implements RecyclerViewProvider<LabourProgressProvider.RegisterViewHolder> {
     private final LayoutInflater inflater;
     protected View.OnClickListener onClickListener;
-    private View.OnClickListener paginationClickListener;
-    private Context context;
-    private Set<org.smartregister.configurableviews.model.View> visibleColumns;
+    private final View.OnClickListener paginationClickListener;
+    private final Context context;
+    private final Set<org.smartregister.configurableviews.model.View> visibleColumns;
 
     public LabourProgressProvider(Context context, View.OnClickListener paginationClickListener, View.OnClickListener onClickListener, Set visibleColumns) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

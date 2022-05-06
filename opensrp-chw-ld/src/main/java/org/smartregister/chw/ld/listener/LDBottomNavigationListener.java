@@ -9,7 +9,7 @@ import org.smartregister.ld.R;
 import org.smartregister.view.activity.BaseRegisterActivity;
 
 public class LDBottomNavigationListener extends BottomNavigationListener {
-    private Activity context;
+    private final Activity context;
 
     public LDBottomNavigationListener(Activity context) {
         super(context);

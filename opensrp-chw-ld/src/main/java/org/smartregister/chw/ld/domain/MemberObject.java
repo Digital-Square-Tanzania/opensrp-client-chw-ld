@@ -1,5 +1,7 @@
 package org.smartregister.chw.ld.domain;
 
+import org.smartregister.util.Utils;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -322,5 +324,9 @@ public class MemberObject implements Serializable {
 
     public void setLDFollowUpDate(String ldFollowUpDate) {
         this.ldFollowUpDate = ldFollowUpDate;
+    }
+
+    public String getFullName() {
+        return Utils.getName(getFirstName(), getLastName());
     }
 }

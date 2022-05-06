@@ -15,7 +15,7 @@ import org.smartregister.ld.R;
 import timber.log.Timber;
 
 public class CopyToClipboardDialog extends Dialog implements View.OnClickListener {
-    private Context context;
+    private final Context context;
     private String content;
 
     public CopyToClipboardDialog(@NonNull Context context) {

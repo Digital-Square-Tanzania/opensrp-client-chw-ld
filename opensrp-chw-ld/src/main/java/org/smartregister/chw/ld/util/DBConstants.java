@@ -22,6 +22,7 @@ public class DBConstants {
         public static final String IS_PNC_CLOSED = "is_pnc_closed";
         public static final String RELATIONAL_ID = "relational_id";
         public static final String FAMILY_HEAD = "family_head";
+        public static final String VISIT_NOT_DONE = "visit_not_done";
 
     }
 }

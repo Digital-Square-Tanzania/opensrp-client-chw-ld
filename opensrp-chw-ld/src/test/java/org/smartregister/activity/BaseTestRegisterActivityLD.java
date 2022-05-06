@@ -13,7 +13,7 @@ public class BaseTestRegisterActivityLD {
     @Mock
     public Intent data;
     @Mock
-    private BaseLDRegisterActivity baseLDRegisterActivity = new BaseLDRegisterActivity();
+    private final BaseLDRegisterActivity baseLDRegisterActivity = new BaseLDRegisterActivity();
 
     @Test
     public void assertNotNull() {

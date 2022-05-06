@@ -2,6 +2,8 @@ package org.smartregister.chw.ld;
 
 import org.smartregister.Context;
 import org.smartregister.CoreLibrary;
+import org.smartregister.chw.ld.repository.VisitDetailsRepository;
+import org.smartregister.chw.ld.repository.VisitRepository;
 import org.smartregister.repository.Repository;
 import org.smartregister.sync.ClientProcessorForJava;
 import org.smartregister.sync.helper.ECSyncHelper;
@@ -10,16 +12,26 @@ import id.zelory.compressor.Compressor;
 
 public class LDLibrary {
     private static LDLibrary instance;
+    private VisitRepository visitRepository;
+    private VisitDetailsRepository visitDetailsRepository;
+    private final String sourceDateFormat = "dd-MM-yyyy";
+    private final String saveDateFormat = "yyyy-MM-dd";
 
     private final Context context;
     private final Repository repository;
 
-    private int applicationVersion;
-    private int databaseVersion;
+    private final int applicationVersion;
+    private final int databaseVersion;
     private ECSyncHelper syncHelper;
 
     private ClientProcessorForJava clientProcessorForJava;
     private Compressor compressor;
+    private final boolean submitOnSave = false;
+
+    public boolean isSubmitOnSave() {
+        return submitOnSave;
+    }
+
 
     public static void init(Context context, Repository repository, int applicationVersion, int databaseVersion) {
         if (instance == null) {
@@ -76,6 +88,28 @@ public class LDLibrary {
 
     public void setClientProcessorForJava(ClientProcessorForJava clientProcessorForJava) {
         this.clientProcessorForJava = clientProcessorForJava;
+    }
+
+    public VisitRepository visitRepository() {
+        if (visitRepository == null) {
+            visitRepository = new VisitRepository();
+        }
+        return visitRepository;
+    }
+
+    public VisitDetailsRepository visitDetailsRepository() {
+        if (visitDetailsRepository == null) {
+            visitDetailsRepository = new VisitDetailsRepository();
+        }
+        return visitDetailsRepository;
+    }
+
+    public String getSourceDateFormat() {
+        return sourceDateFormat;
+    }
+
+    public String getSaveDateFormat() {
+        return saveDateFormat;
     }
 
 }
