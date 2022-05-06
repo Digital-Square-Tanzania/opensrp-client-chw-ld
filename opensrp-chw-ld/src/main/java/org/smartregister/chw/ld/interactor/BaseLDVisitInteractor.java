@@ -1,8 +1,6 @@
 package org.smartregister.chw.ld.interactor;
 
 
-import android.content.Context;
-
 import androidx.annotation.VisibleForTesting;
 
 import com.google.gson.Gson;
