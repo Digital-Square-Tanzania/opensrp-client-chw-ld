@@ -13,15 +13,15 @@ import static org.mockito.Mockito.verify;
 public class BaseTestProfilePresenterLD {
 
     @Mock
-    private LDProfileContract.View view = Mockito.mock(LDProfileContract.View.class);
+    private final LDProfileContract.View view = Mockito.mock(LDProfileContract.View.class);
 
     @Mock
-    private LDProfileContract.Interactor interactor = Mockito.mock(LDProfileContract.Interactor.class);
+    private final LDProfileContract.Interactor interactor = Mockito.mock(LDProfileContract.Interactor.class);
 
     @Mock
-    private MemberObject memberObject = new MemberObject();
+    private final MemberObject memberObject = new MemberObject();
 
-    private BaseLDProfilePresenter profilePresenter = new BaseLDProfilePresenter(view, interactor, memberObject);
+    private final BaseLDProfilePresenter profilePresenter = new BaseLDProfilePresenter(view, interactor, memberObject);
 
 
     @Test

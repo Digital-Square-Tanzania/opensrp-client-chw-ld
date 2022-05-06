@@ -50,7 +50,7 @@ import timber.log.Timber;
 
 public class NCUtils {
 
-    private static String[] default_obs = {"start", "end", "deviceid", "subscriberid", "simserial", "phonenumber"};
+    private static final String[] default_obs = {"start", "end", "deviceid", "subscriberid", "simserial", "phonenumber"};
 
     public static String firstCharacterUppercase(String str) {
         if (TextUtils.isEmpty(str)) return "";
@@ -326,13 +326,13 @@ public class NCUtils {
         List<String> exceptions = Arrays.asList(default_obs);
 
         Visit visit = new Visit();
-        visit.setVisitId(org.smartregister.chw.ld.util.JsonFormUtils.generateRandomUUIDString());
+        visit.setVisitId(JsonFormUtils.generateRandomUUIDString());
         visit.setBaseEntityId(event.getBaseEntityId());
         visit.setDate(event.getEventDate().toDate());
         visit.setVisitType(event.getEventType());
         visit.setEventId(event.getEventId());
         visit.setFormSubmissionId(event.getFormSubmissionId());
-        visit.setJson(new JSONObject(org.smartregister.chw.ld.util.JsonFormUtils.gson.toJson(event)).toString());
+        visit.setJson(new JSONObject(JsonFormUtils.gson.toJson(event)).toString());
         visit.setProcessed(true);
         visit.setCreatedAt(new Date());
         visit.setUpdatedAt(new Date());
@@ -345,7 +345,7 @@ public class NCUtils {
             for (org.smartregister.domain.db.Obs obs : event.getObs()) {
                 if (!exceptions.contains(obs.getFormSubmissionField())) {
                     VisitDetail detail = new VisitDetail();
-                    detail.setVisitDetailsId(org.smartregister.chw.ld.util.JsonFormUtils.generateRandomUUIDString());
+                    detail.setVisitDetailsId(JsonFormUtils.generateRandomUUIDString());
                     detail.setVisitId(visit.getVisitId());
                     detail.setVisitKey(obs.getFormSubmissionField());
                     detail.setParentCode(obs.getParentCode());

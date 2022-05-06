@@ -8,7 +8,7 @@ import org.smartregister.chw.ld.util.LDUtil;
 
 public class BaseLDRegisterInteractor implements LDRegisterContract.Interactor {
 
-    private AppExecutors appExecutors;
+    private final AppExecutors appExecutors;
 
     @VisibleForTesting
     BaseLDRegisterInteractor(AppExecutors appExecutors) {

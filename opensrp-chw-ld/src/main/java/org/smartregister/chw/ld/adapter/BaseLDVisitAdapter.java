@@ -23,9 +23,9 @@ import java.util.Map;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class BaseLDVisitAdapter extends RecyclerView.Adapter<BaseLDVisitAdapter.MyViewHolder> {
-    private Map<String, BaseLDVisitAction> ldHomeVisitActionList;
-    private Context context;
-    private BaseLDVisitContract.View visitContractView;
+    private final Map<String, BaseLDVisitAction> ldHomeVisitActionList;
+    private final Context context;
+    private final BaseLDVisitContract.View visitContractView;
 
     public BaseLDVisitAdapter(Context context, BaseLDVisitContract.View view, LinkedHashMap<String, BaseLDVisitAction> myDataset) {
         ldHomeVisitActionList = myDataset;
@@ -173,9 +173,11 @@ public class BaseLDVisitAdapter extends RecyclerView.Adapter<BaseLDVisitAdapter.
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView titleText, invalidText, descriptionText;
-        private CircleImageView circleImageView;
-        private LinearLayout myView;
+        private final TextView titleText;
+        private final TextView invalidText;
+        private final TextView descriptionText;
+        private final CircleImageView circleImageView;
+        private final LinearLayout myView;
 
         private MyViewHolder(View view) {
             super(view);

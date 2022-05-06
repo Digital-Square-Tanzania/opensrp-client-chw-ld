@@ -45,7 +45,7 @@ public class BaseLDVisitInteractor implements BaseLDVisitContract.Interactor {
 
     protected AppExecutors appExecutors;
     private final LDLibrary ldLibrary;
-    private ECSyncHelper syncHelper;
+    private final ECSyncHelper syncHelper;
 
     @VisibleForTesting
     public BaseLDVisitInteractor(AppExecutors appExecutors, LDLibrary ldLibrary, ECSyncHelper syncHelper) {
@@ -56,7 +56,7 @@ public class BaseLDVisitInteractor implements BaseLDVisitContract.Interactor {
     }
 
     public BaseLDVisitInteractor() {
-        this(new AppExecutors(), org.smartregister.chw.ld.LDLibrary.getInstance(), org.smartregister.chw.ld.LDLibrary.getInstance().getEcSyncHelper());
+        this(new AppExecutors(), LDLibrary.getInstance(), LDLibrary.getInstance().getEcSyncHelper());
     }
 
     @Override
@@ -170,9 +170,6 @@ public class BaseLDVisitInteractor implements BaseLDVisitContract.Interactor {
             List<Visit> visits = new ArrayList<>(1);
             visits.add(visit);
             VisitUtils.processVisits(visits, ldLibrary.visitRepository(), ldLibrary.visitDetailsRepository());
-
-            Context context = LDLibrary.getInstance().context().applicationContext();
-
         }
     }
 
@@ -263,30 +260,8 @@ public class BaseLDVisitInteractor implements BaseLDVisitContract.Interactor {
 
     protected void deleteProcessedVisit(String visitID, String baseEntityId) {
         // check if the event
-        AllSharedPreferences allSharedPreferences = LDLibrary.getInstance().context().allSharedPreferences();
         Visit visit = visitRepository().getVisitByVisitId(visitID);
         if (visit == null || !visit.getProcessed()) return;
-
-        //     Event processedEvent = HomeVisitDao.getEventByFormSubmissionId(visit.getFormSubmissionId());
-//        if (processedEvent == null) return;
-
-        //      deleteSavedEvent(allSharedPreferences, baseEntityId, processedEvent.getEventId(), processedEvent.getFormSubmissionId(), "event");
-
-        //    Map<String, String> details = processedEvent.getDetails();
-        //     String homeVisitGroup = details.get(Constants.HOME_VISIT_GROUP);
-        //   if (StringUtils.isBlank(homeVisitGroup)) return;
-
-
-        // delete all related recurring services
-//        List<ServiceRecord> serviceRecords = HomeVisitDao.fetchServicesSubmissionIdByProgramId(homeVisitGroup);
-//        for (ServiceRecord serviceRecord : serviceRecords)
-//            deleteSavedEvent(allSharedPreferences, baseEntityId, serviceRecord.getEventId(), serviceRecord.getFormSubmissionId(), "service");
-
-        // delete all related visit events
-        // List<Visit> visits = visitRepository().getVisitsByGroup(homeVisitGroup);
-        //  for (Visit childVisit : visits)
-        //    if (!childVisit.getVisitId().equalsIgnoreCase(visitID))
-        //      deleteSavedEvent(allSharedPreferences, baseEntityId, childVisit.getEventId(), childVisit.getFormSubmissionId(), "event");
     }
 
     protected void deleteSavedEvent(AllSharedPreferences allSharedPreferences, String baseEntityId, String eventId, String formSubmissionId, String type) {

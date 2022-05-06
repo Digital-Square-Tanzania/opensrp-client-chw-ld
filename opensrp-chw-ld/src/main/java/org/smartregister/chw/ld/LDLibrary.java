@@ -14,19 +14,19 @@ public class LDLibrary {
     private static LDLibrary instance;
     private VisitRepository visitRepository;
     private VisitDetailsRepository visitDetailsRepository;
-    private String sourceDateFormat = "dd-MM-yyyy";
-    private String saveDateFormat = "yyyy-MM-dd";
+    private final String sourceDateFormat = "dd-MM-yyyy";
+    private final String saveDateFormat = "yyyy-MM-dd";
 
     private final Context context;
     private final Repository repository;
 
-    private int applicationVersion;
-    private int databaseVersion;
+    private final int applicationVersion;
+    private final int databaseVersion;
     private ECSyncHelper syncHelper;
 
     private ClientProcessorForJava clientProcessorForJava;
     private Compressor compressor;
-    private boolean submitOnSave = false;
+    private final boolean submitOnSave = false;
 
     public boolean isSubmitOnSave() {
         return submitOnSave;

@@ -67,7 +67,7 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
     protected RelativeLayout rlLDPositiveDate;
     private TextView tvUpComingServices;
     private TextView tvFamilyStatus;
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
     protected TextView textViewVisitDone;
     protected RelativeLayout visitDone;
     protected LinearLayout recordVisits;

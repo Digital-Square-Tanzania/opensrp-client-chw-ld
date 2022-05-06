@@ -35,11 +35,11 @@ public class BaseLDVisitAction {
     private String jsonPayload;
     private String selectedOption;
     private LDVisitActionHelper ldVisitActionHelper;
-    private Map<String, List<VisitDetail>> details;
-    private Context context;
-    private Validator validator;
+    private final Map<String, List<VisitDetail>> details;
+    private final Context context;
+    private final Validator validator;
 
-    private BaseLDVisitAction(Builder builder) throws ValidationException {
+    public BaseLDVisitAction(Builder builder) throws ValidationException {
         this.baseEntityID = builder.baseEntityID;
         this.title = builder.title;
         this.subTitle = builder.subTitle;
@@ -302,7 +302,7 @@ public class BaseLDVisitAction {
         }
     }
 
-    public org.smartregister.chw.ld.model.BaseLDVisitAction.Status computedStatus() {
+    public BaseLDVisitAction.Status computedStatus() {
         if (StringUtils.isNotBlank(getJsonPayload())) {
             return Status.COMPLETED;
         } else {
@@ -376,15 +376,15 @@ public class BaseLDVisitAction {
         /**
          * Custom processing after payload is received
          */
-        void onPayloadReceived(org.smartregister.chw.ld.model.BaseLDVisitAction ldVisitAction);
+        void onPayloadReceived(BaseLDVisitAction ldVisitAction);
     }
 
     public static class Builder {
         private String baseEntityID;
-        private String title;
+        private final String title;
         private String subTitle;
         private String disabledMessage;
-        private Status actionStatus = Status.PENDING;
+        private final Status actionStatus = Status.PENDING;
         private PayloadType payloadType = PayloadType.JSON;
         private String payloadDetails;
         private ScheduleStatus scheduleStatus = ScheduleStatus.DUE;
@@ -394,7 +394,7 @@ public class BaseLDVisitAction {
         private String formName;
         private LDVisitActionHelper ldVisitActionHelper;
         private Map<String, List<VisitDetail>> details = new HashMap<>();
-        private Context context;
+        private final Context context;
         private String jsonPayload;
         private Validator validator;
 
@@ -473,8 +473,8 @@ public class BaseLDVisitAction {
             return this;
         }
 
-        public org.smartregister.chw.ld.model.BaseLDVisitAction build() throws ValidationException {
-            return new org.smartregister.chw.ld.model.BaseLDVisitAction(this);
+        public BaseLDVisitAction build() throws ValidationException {
+            return new BaseLDVisitAction(this);
         }
     }
 

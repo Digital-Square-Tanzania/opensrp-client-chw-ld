@@ -105,9 +105,6 @@ public class VisitUtils {
         // process after all events are saved
         NCUtils.startClientProcessing();
 
-        // process vaccines and services
-        Context context = LDLibrary.getInstance().context().applicationContext();
-
     }
 
 

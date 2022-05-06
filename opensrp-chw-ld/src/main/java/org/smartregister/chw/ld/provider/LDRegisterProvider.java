@@ -36,10 +36,10 @@ public class LDRegisterProvider implements RecyclerViewProvider<LDRegisterProvid
 
     private final LayoutInflater inflater;
 
-    private View.OnClickListener paginationClickListener;
+    private final View.OnClickListener paginationClickListener;
     protected View.OnClickListener onClickListener;
-    private Context context;
-    private Set<org.smartregister.configurableviews.model.View> visibleColumns;
+    private final Context context;
+    private final Set<org.smartregister.configurableviews.model.View> visibleColumns;
 
     public LDRegisterProvider(Context context, View.OnClickListener paginationClickListener, View.OnClickListener onClickListener, Set visibleColumns) {
 

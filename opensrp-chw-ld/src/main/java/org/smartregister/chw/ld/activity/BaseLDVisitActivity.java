@@ -25,9 +25,9 @@ import com.vijay.jsonwizard.domain.Form;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 import org.smartregister.AllConstants;
-import org.smartregister.chw.ld.contract.BaseLDVisitContract;
 import org.smartregister.chw.ld.LDLibrary;
 import org.smartregister.chw.ld.adapter.BaseLDVisitAdapter;
+import org.smartregister.chw.ld.contract.BaseLDVisitContract;
 import org.smartregister.chw.ld.domain.MemberObject;
 import org.smartregister.chw.ld.interactor.BaseLDVisitInteractor;
 import org.smartregister.chw.ld.presenter.BaseLDVisitPresenter;
@@ -42,10 +42,8 @@ import java.util.Map;
 import timber.log.Timber;
 
 public class BaseLDVisitActivity extends SecuredActivity implements BaseLDVisitContract.View, View.OnClickListener {
-
-    private static final String TAG = org.smartregister.chw.ld.activity.BaseLDVisitActivity.class.getCanonicalName();
     protected Map<String, org.smartregister.chw.ld.model.BaseLDVisitAction> actionList = new LinkedHashMap<>();
-    protected org.smartregister.chw.ld.contract.BaseLDVisitContract.Presenter presenter;
+    protected BaseLDVisitContract.Presenter presenter;
     protected MemberObject memberObject;
     protected String baseEntityID;
     protected Boolean isEditMode = false;
@@ -58,7 +56,7 @@ public class BaseLDVisitActivity extends SecuredActivity implements BaseLDVisitC
     protected String confirmCloseMessage;
 
     public static void startMe(Activity activity, String baseEntityID, Boolean isEditMode) {
-        Intent intent = new Intent(activity, org.smartregister.chw.ld.activity.BaseLDVisitActivity.class);
+        Intent intent = new Intent(activity, BaseLDVisitActivity.class);
         intent.putExtra(BASE_ENTITY_ID, baseEntityID);
         intent.putExtra(EDIT_MODE, isEditMode);
         activity.startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
@@ -327,7 +325,7 @@ public class BaseLDVisitActivity extends SecuredActivity implements BaseLDVisitC
 
     @Override
     public void onBackPressed() {
-        displayExitDialog(org.smartregister.chw.ld.activity.BaseLDVisitActivity.this::finish);
+        displayExitDialog(BaseLDVisitActivity.this::finish);
     }
 
     protected void displayExitDialog(final Runnable onConfirm) {

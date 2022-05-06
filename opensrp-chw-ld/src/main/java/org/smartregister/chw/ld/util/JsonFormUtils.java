@@ -28,8 +28,7 @@ import timber.log.Timber;
 public class JsonFormUtils extends org.smartregister.util.JsonFormUtils {
     public static final String METADATA = "metadata";
     public static final String IMAGE = "image";
-    public static final String HOME_VISIT_GROUP = "home_visit_group";
-    private static final String V_REQUIRED = "v_required";
+    public static final String LD_VISIT_GROUP = "ld_visit_group";
 
     protected static Triple<Boolean, JSONObject, JSONArray> validateParameters(String jsonString) {
 
@@ -68,7 +67,7 @@ public class JsonFormUtils extends org.smartregister.util.JsonFormUtils {
             while (local_fields.length() > x) {
                 try {
                     JSONObject obj = local_fields.getJSONObject(x);
-                    obj.put(HOME_VISIT_GROUP, map.getKey());
+                    obj.put(LD_VISIT_GROUP, map.getKey());
                     fields_obj.add(obj);
                 } catch (JSONException e) {
                     Timber.e(e);
@@ -357,8 +356,8 @@ public class JsonFormUtils extends org.smartregister.util.JsonFormUtils {
     }
 
     private static class NameID {
-        private String name;
-        private int position;
+        private final String name;
+        private final int position;
 
         public NameID(String name, int position) {
             this.name = name;

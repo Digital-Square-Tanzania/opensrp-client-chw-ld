@@ -11,7 +11,7 @@ import timber.log.Timber;
 
 public class BaseLDCallWidgetDialogListener implements View.OnClickListener {
 
-    private BaseLDCallDialogFragment callDialogFragment;
+    private final BaseLDCallDialogFragment callDialogFragment;
 
     public BaseLDCallWidgetDialogListener(BaseLDCallDialogFragment dialogFragment) {
         callDialogFragment = dialogFragment;

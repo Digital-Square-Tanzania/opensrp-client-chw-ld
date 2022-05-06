@@ -11,7 +11,7 @@ import org.smartregister.chw.ld.fragment.BaseLDCallDialogFragment;
 import org.smartregister.ld.R;
 
 public class BaseLDFloatingMenu extends LinearLayout implements View.OnClickListener {
-    private MemberObject MEMBER_OBJECT;
+    private final MemberObject MEMBER_OBJECT;
 
     public BaseLDFloatingMenu(Context context, MemberObject MEMBER_OBJECT) {
         super(context);
