@@ -50,7 +50,10 @@
     <string name="edit">EDIT</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="optional">optional</string>
+    <string name="error_unable_save_visit">unable to save visit</string>
     <string name="labour_progress">Labour Progress</string>
     <string name="view_labour_progress">View Labour Progress</string>
+    <string name="ld_visit">ld visit</string>
 
 </resources>

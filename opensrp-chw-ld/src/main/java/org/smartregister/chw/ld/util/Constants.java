@@ -6,6 +6,7 @@ public interface Constants {
     String ENCOUNTER_TYPE = "encounter_type";
     String STEP_ONE = "step1";
     String STEP_TWO = "step2";
+    String LD_VISIT_GROUP = "ld_visit_group";
 
     interface JSON_FORM_EXTRA {
         String JSON = "json";
@@ -15,6 +16,7 @@ public interface Constants {
     interface EVENT_TYPE {
         String LD_CONFIRMATION = "LD Confirmation";
         String LD_FOLLOW_UP_VISIT = "LD Follow-up Visit";
+        String VOID_EVENT = "Void Event";
     }
 
     interface FORMS {
@@ -32,6 +34,8 @@ public interface Constants {
         String FAMILY_BASE_ENTITY_ID = "FAMILY_BASE_ENTITY_ID";
         String ACTION = "ACTION";
         String LD_FORM_NAME = "LD_FORM_NAME";
+        String EDIT_MODE = "editMode";
+        String MEMBER_PROFILE_OBJECT = "MemberObject";
 
     }
 
