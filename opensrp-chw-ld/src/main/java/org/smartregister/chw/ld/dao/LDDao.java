@@ -39,7 +39,7 @@ public class LDDao extends AbstractDao {
 
     public static boolean isRegisteredForLD(String baseEntityID) {
         String sql = "SELECT count(p.base_entity_id) count FROM ec_ld_confirmation p " +
-                "WHERE p.base_entity_id = '" + baseEntityID + "' AND p.is_closed = 0 AND p.ld  = 1 " +
+                "WHERE p.base_entity_id = '" + baseEntityID + "' AND p.is_closed = 0 AND p.labour_confirmation  = 'true' " +
                 "AND datetime('NOW') <= datetime(p.last_interacted_with/1000, 'unixepoch', 'localtime','+15 days')";
 
         DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
