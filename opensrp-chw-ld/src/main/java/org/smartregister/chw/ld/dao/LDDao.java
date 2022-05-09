@@ -1,6 +1,7 @@
 package org.smartregister.chw.ld.dao;
 
 import org.smartregister.chw.ld.domain.MemberObject;
+import org.smartregister.chw.ld.util.Constants;
 import org.smartregister.dao.AbstractDao;
 
 import java.text.SimpleDateFormat;
@@ -123,6 +124,17 @@ public class LDDao extends AbstractDao {
         String sql = "SELECT labour_stage FROM ec_ld_confirmation WHERE base_entity_id = '" + baseEntityId + "'";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "labour_stage");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
+    public static String getCervixDilation(String baseEntityId) {
+        String sql = "SELECT cervix_dilation FROM " + Constants.TABLES.EC_LD_GENERAL_EXAMINATION + " WHERE base_entity_id = '" + baseEntityId + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "cervix_dilation");
 
         List<String> res = readData(sql, dataMap);
         if (res != null && res.size() > 0)
