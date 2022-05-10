@@ -129,4 +129,59 @@ public class LDDao extends AbstractDao {
             return res.get(0);
         return null;
     }
+
+    public static String getLabourOnsetDate(String baseEntityId) {
+        String sql = "SELECT labour_onset_date FROM ec_ld_confirmation WHERE base_entity_id = '" + baseEntityId + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "labour_onset_date");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
+    public static String getLabourOnsetTime(String baseEntityId) {
+        String sql = "SELECT labour_onset_time FROM ec_ld_confirmation WHERE base_entity_id = '" + baseEntityId + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "labour_onset_time");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
+    public static String getCervixDilation(String baseEntityId) {
+        String sql = "SELECT cervix_dilation FROM ec_ld_general_examination_consultation WHERE base_entity_id = '" + baseEntityId + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "cervix_dilation");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
+    public static String getVaginalExaminationDate(String baseEntityId) {
+        String sql = "SELECT vaginal_exam_date FROM ec_ld_general_examination_consultation WHERE base_entity_id = '" + baseEntityId + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "vaginal_exam_date");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
+    public static String getVaginalExaminationTime(String baseEntityId) {
+        String sql = "SELECT vaginal_exam_time FROM ec_ld_general_examination_consultation WHERE base_entity_id = '" + baseEntityId + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "vaginal_exam_time");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
 }
