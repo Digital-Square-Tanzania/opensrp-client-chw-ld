@@ -17,6 +17,7 @@ public interface Constants {
         String LD_CONFIRMATION = "LD Confirmation";
         String LD_FOLLOW_UP_VISIT = "LD Follow-up Visit";
         String VOID_EVENT = "Void Event";
+        String LD_GENERAL_EXAMINATION = "LD General Examination";
     }
 
     interface FORMS {
@@ -27,6 +28,7 @@ public interface Constants {
     interface TABLES {
         String LD_CONFIRMATION = "ec_ld_confirmation";
         String LD_FOLLOW_UP = "ec_ld_follow_up_visit";
+        String EC_LD_GENERAL_EXAMINATION = "ec_ld_general_examination_consultation";
     }
 
     interface ACTIVITY_PAYLOAD {

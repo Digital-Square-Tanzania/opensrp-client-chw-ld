@@ -1,6 +1,7 @@
 package org.smartregister.chw.ld.dao;
 
 import org.smartregister.chw.ld.domain.MemberObject;
+import org.smartregister.chw.ld.util.Constants;
 import org.smartregister.dao.AbstractDao;
 
 import java.text.SimpleDateFormat;
@@ -11,7 +12,7 @@ import java.util.Locale;
 public class LDDao extends AbstractDao {
 
     public static Date getLDTestDate(String baseEntityID) {
-        String sql = "select ld_test_date from ec_ld_confirmation where base_entity_id = '" + baseEntityID + "'";
+        String sql = "select ld_test_date from " + Constants.TABLES.LD_CONFIRMATION + " where base_entity_id = '" + baseEntityID + "'";
 
         DataMap<Date> dataMap = cursor -> getCursorValueAsDate(cursor, "ld_test_date", getNativeFormsDateFormat());
 
@@ -35,12 +36,12 @@ public class LDDao extends AbstractDao {
     }
 
     public static void closeLDMemberFromRegister(String baseEntityID) {
-        String sql = "update ec_ld_confirmation set is_closed = 1 where base_entity_id = '" + baseEntityID + "'";
+        String sql = "update " + Constants.TABLES.LD_CONFIRMATION + " set is_closed = 1 where base_entity_id = '" + baseEntityID + "'";
         updateDB(sql);
     }
 
     public static boolean isRegisteredForLD(String baseEntityID) {
-        String sql = "SELECT count(p.base_entity_id) count FROM ec_ld_confirmation p " +
+        String sql = "SELECT count(p.base_entity_id) count FROM " + Constants.TABLES.LD_CONFIRMATION + " p " +
                 "WHERE p.base_entity_id = '" + baseEntityID + "' AND p.is_closed = 0 AND p.labour_confirmation  = 'true' " +
                 "AND datetime('NOW') <= datetime(p.last_interacted_with/1000, 'unixepoch', 'localtime','+15 days')";
 
@@ -54,7 +55,7 @@ public class LDDao extends AbstractDao {
     }
 
     public static Integer getLDFamilyMembersCount(String familyBaseEntityId) {
-        String sql = "SELECT count(emc.base_entity_id) count FROM ec_ld_confirmation emc " +
+        String sql = "SELECT count(emc.base_entity_id) count FROM " + Constants.TABLES.LD_CONFIRMATION + " emc " +
                 "INNER Join ec_family_member fm on fm.base_entity_id = emc.base_entity_id " +
                 "WHERE fm.relational_id = '" + familyBaseEntityId + "' AND fm.is_closed = 0 " +
                 "AND emc.is_closed = 0 AND emc.ld = 1";
@@ -68,7 +69,7 @@ public class LDDao extends AbstractDao {
     }
 
     public static MemberObject getMember(String baseEntityID) {
-        String sql = "select m.base_entity_id , m.unique_id , m.relational_id , m.dob , m.first_name , m.middle_name , m.last_name , m.gender , m.phone_number , m.other_phone_number , f.first_name family_name ,f.primary_caregiver , f.family_head , f.village_town ,fh.first_name family_head_first_name , fh.middle_name family_head_middle_name , fh.last_name family_head_last_name, fh.phone_number family_head_phone_number , ancr.is_closed anc_is_closed, pncr.is_closed pnc_is_closed, pcg.first_name pcg_first_name , pcg.last_name pcg_last_name , pcg.middle_name pcg_middle_name , pcg.phone_number  pcg_phone_number , mr.* from ec_family_member m inner join ec_family f on m.relational_id = f.base_entity_id inner join ec_ld_confirmation mr on mr.base_entity_id = m.base_entity_id left join ec_family_member fh on fh.base_entity_id = f.family_head left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver left join ec_anc_register ancr on ancr.base_entity_id = m.base_entity_id left join ec_pregnancy_outcome pncr on pncr.base_entity_id = m.base_entity_id where m.base_entity_id ='" + baseEntityID + "' AND mr.labour_confirmation = 'true'";
+        String sql = "select m.base_entity_id , m.unique_id , m.relational_id , m.dob , m.first_name , m.middle_name , m.last_name , m.gender , m.phone_number , m.other_phone_number , f.first_name family_name ,f.primary_caregiver , f.family_head , f.village_town ,fh.first_name family_head_first_name , fh.middle_name family_head_middle_name , fh.last_name family_head_last_name, fh.phone_number family_head_phone_number , ancr.is_closed anc_is_closed, pncr.is_closed pnc_is_closed, pcg.first_name pcg_first_name , pcg.last_name pcg_last_name , pcg.middle_name pcg_middle_name , pcg.phone_number  pcg_phone_number , mr.* from ec_family_member m inner join ec_family f on m.relational_id = f.base_entity_id inner join " + Constants.TABLES.LD_CONFIRMATION + " mr on mr.base_entity_id = m.base_entity_id left join ec_family_member fh on fh.base_entity_id = f.family_head left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver left join ec_anc_register ancr on ancr.base_entity_id = m.base_entity_id left join ec_pregnancy_outcome pncr on pncr.base_entity_id = m.base_entity_id where m.base_entity_id ='" + baseEntityID + "' AND mr.labour_confirmation = 'true'";
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
 
         DataMap<MemberObject> dataMap = cursor -> {
@@ -120,7 +121,7 @@ public class LDDao extends AbstractDao {
 
 
     public static String getLabourStage(String baseEntityId) {
-        String sql = "SELECT labour_stage FROM ec_ld_confirmation WHERE base_entity_id = '" + baseEntityId + "'";
+        String sql = "SELECT labour_stage FROM " + Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "labour_stage");
 
@@ -130,8 +131,19 @@ public class LDDao extends AbstractDao {
         return null;
     }
 
+    public static String getCervixDilation(String baseEntityId) {
+        String sql = "SELECT cervix_dilation FROM " + Constants.TABLES.EC_LD_GENERAL_EXAMINATION + " WHERE base_entity_id = '" + baseEntityId + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "cervix_dilation");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
     public static String getLabourOnsetDate(String baseEntityId) {
-        String sql = "SELECT labour_onset_date FROM ec_ld_confirmation WHERE base_entity_id = '" + baseEntityId + "'";
+        String sql = "SELECT labour_onset_date FROM " + Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "labour_onset_date");
 
@@ -142,7 +154,7 @@ public class LDDao extends AbstractDao {
     }
 
     public static String getLabourOnsetTime(String baseEntityId) {
-        String sql = "SELECT labour_onset_time FROM ec_ld_confirmation WHERE base_entity_id = '" + baseEntityId + "'";
+        String sql = "SELECT labour_onset_time FROM " + Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "labour_onset_time");
 
@@ -152,19 +164,8 @@ public class LDDao extends AbstractDao {
         return null;
     }
 
-    public static String getCervixDilation(String baseEntityId) {
-        String sql = "SELECT cervix_dilation FROM ec_ld_general_examination_consultation WHERE base_entity_id = '" + baseEntityId + "'";
-
-        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "cervix_dilation");
-
-        List<String> res = readData(sql, dataMap);
-        if (res != null && res.size() > 0)
-            return res.get(0);
-        return null;
-    }
-
     public static String getVaginalExaminationDate(String baseEntityId) {
-        String sql = "SELECT vaginal_exam_date FROM ec_ld_general_examination_consultation WHERE base_entity_id = '" + baseEntityId + "'";
+        String sql = "SELECT vaginal_exam_date FROM " + Constants.TABLES.EC_LD_GENERAL_EXAMINATION + " WHERE base_entity_id = '" + baseEntityId + "'";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "vaginal_exam_date");
 
@@ -175,7 +176,7 @@ public class LDDao extends AbstractDao {
     }
 
     public static String getVaginalExaminationTime(String baseEntityId) {
-        String sql = "SELECT vaginal_exam_time FROM ec_ld_general_examination_consultation WHERE base_entity_id = '" + baseEntityId + "'";
+        String sql = "SELECT vaginal_exam_time FROM " + Constants.TABLES.EC_LD_GENERAL_EXAMINATION + " WHERE base_entity_id = '" + baseEntityId + "'";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "vaginal_exam_time");
 
