@@ -185,4 +185,15 @@ public class LDDao extends AbstractDao {
             return res.get(0);
         return null;
     }
+
+    public static String getMembraneStateDuringAdmissionToLabour(String baseEntityId) {
+        String sql = "SELECT membrane FROM " + Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "membrane");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
 }
