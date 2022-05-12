@@ -3,6 +3,7 @@ package org.smartregister.chw.ld.dao;
 import org.smartregister.chw.ld.domain.MemberObject;
 import org.smartregister.chw.ld.util.Constants;
 import org.smartregister.dao.AbstractDao;
+import org.smartregister.util.Utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -81,7 +82,7 @@ public class LDDao extends AbstractDao {
             memberObject.setAddress(getCursorValue(cursor, "village_town"));
             memberObject.setGender(getCursorValue(cursor, "gender"));
             memberObject.setUniqueId(getCursorValue(cursor, "unique_id", ""));
-            memberObject.setAge(getCursorValue(cursor, "dob"));
+            memberObject.setAge(String.valueOf(Utils.getAgeFromDate(getCursorValue(cursor, "dob"))));
             memberObject.setFamilyBaseEntityId(getCursorValue(cursor, "relational_id", ""));
             memberObject.setRelationalId(getCursorValue(cursor, "relational_id", ""));
             memberObject.setPrimaryCareGiver(getCursorValue(cursor, "primary_caregiver"));
