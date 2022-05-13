@@ -29,6 +29,7 @@ public interface Constants {
         String LD_CONFIRMATION = "ec_ld_confirmation";
         String LD_FOLLOW_UP = "ec_ld_follow_up_visit";
         String EC_LD_GENERAL_EXAMINATION = "ec_ld_general_examination_consultation";
+        String EC_LD_PARTOGRAPH = "ec_ld_partograph";
     }
 
     interface ACTIVITY_PAYLOAD {

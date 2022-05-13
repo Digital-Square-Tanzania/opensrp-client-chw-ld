@@ -197,4 +197,74 @@ public class LDDao extends AbstractDao {
             return res.get(0);
         return null;
     }
+
+    public static String getPartographDate(String baseEntityId) {
+        String sql = "SELECT partograph_date FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "partograph_date");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
+    public static String getPartographTime(String baseEntityId) {
+        String sql = "SELECT partograph_time FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "partograph_time");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
+
+    public static String getMembraneStateDuringPartographMonitoring(String baseEntityId) {
+        String sql = "SELECT membrane FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "membrane");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
+
+    public static String getMouldingStatusDuringPartographMonitoring(String baseEntityId) {
+        String sql = "SELECT moulding FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "moulding");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
+
+    public static String getDescentDuringPartographMonitoring(String baseEntityId) {
+        String sql = "SELECT descent_presenting_part FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "descent_presenting_part");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
+
+    public static String getCervixDilationDuringPartographMonitoring(String baseEntityId) {
+        String sql = "SELECT cervix_dilation FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "cervix_dilation");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
 }
