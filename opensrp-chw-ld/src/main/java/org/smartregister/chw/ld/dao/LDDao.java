@@ -187,17 +187,6 @@ public class LDDao extends AbstractDao {
         return null;
     }
 
-    public static String getMembraneStateDuringAdmissionToLabour(String baseEntityId) {
-        String sql = "SELECT membrane FROM " + Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
-
-        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "membrane");
-
-        List<String> res = readData(sql, dataMap);
-        if (res != null && res.size() > 0)
-            return res.get(0);
-        return null;
-    }
-
     public static String getPartographDate(String baseEntityId) {
         String sql = "SELECT partograph_date FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
@@ -221,8 +210,8 @@ public class LDDao extends AbstractDao {
     }
 
 
-    public static String getMembraneStateDuringPartographMonitoring(String baseEntityId) {
-        String sql = "SELECT membrane FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+    public static String getMembraneState(String baseEntityId) {
+        String sql = "SELECT membrane FROM " + Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "membrane");
 
@@ -233,8 +222,8 @@ public class LDDao extends AbstractDao {
     }
 
 
-    public static String getMouldingStatusDuringPartographMonitoring(String baseEntityId) {
-        String sql = "SELECT moulding FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+    public static String getMoulding(String baseEntityId) {
+        String sql = "SELECT moulding FROM " + Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "moulding");
 
@@ -245,22 +234,10 @@ public class LDDao extends AbstractDao {
     }
 
 
-    public static String getDescentDuringPartographMonitoring(String baseEntityId) {
-        String sql = "SELECT descent_presenting_part FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+    public static String getDescent(String baseEntityId) {
+        String sql = "SELECT descent_presenting_part FROM " + Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "descent_presenting_part");
-
-        List<String> res = readData(sql, dataMap);
-        if (res != null && res.size() > 0)
-            return res.get(0);
-        return null;
-    }
-
-
-    public static String getCervixDilationDuringPartographMonitoring(String baseEntityId) {
-        String sql = "SELECT cervix_dilation FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
-
-        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "cervix_dilation");
 
         List<String> res = readData(sql, dataMap);
         if (res != null && res.size() > 0)
