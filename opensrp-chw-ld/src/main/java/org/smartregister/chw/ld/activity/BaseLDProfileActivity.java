@@ -6,10 +6,6 @@ import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import androidx.annotation.Nullable;
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,6 +13,11 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
@@ -160,18 +161,7 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
     @Override
     protected void setupViews() {
         initializeFloatingMenu();
-        recordAnc(memberObject);
-        recordPnc(memberObject);
-    }
-
-    @Override
-    public void recordAnc(MemberObject memberObject) {
-        //implement
-    }
-
-    @Override
-    public void recordPnc(MemberObject memberObject) {
-        //implement
+        showLabourProgress(true);
     }
 
     @Override
@@ -185,7 +175,7 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
             this.openUpcomingService();
         } else if (id == R.id.rlFamilyServicesDue) {
             this.openFamilyDueServices();
-        }else if (id == R.id.rlLabourProgress){
+        } else if (id == R.id.rlLabourProgress) {
             this.openLabourProgress();
         }
     }
@@ -256,6 +246,11 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
     }
 
     @Override
+    public void showLabourProgress(boolean showLabourProgress) {
+        rlLabourProgress.setVisibility(showLabourProgress ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
     }
@@ -315,8 +310,8 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
     }
 
     @Override
-    public void openLabourProgress(){
-        //implement
+    public void openLabourProgress() {
+        PartographMonitoringActivity.startPartographMonitoringActivity(this, memberObject.getBaseEntityId());
     }
 
     @Nullable
