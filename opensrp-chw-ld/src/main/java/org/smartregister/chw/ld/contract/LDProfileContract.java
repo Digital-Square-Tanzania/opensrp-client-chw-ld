@@ -23,9 +23,7 @@ public interface LDProfileContract {
 
         void showProgressBar(boolean status);
 
-        void recordAnc(MemberObject memberObject);
-
-        void recordPnc(MemberObject memberObject);
+        void showLabourProgress(boolean showLabourProgress);
 
         void hideView();
     }
