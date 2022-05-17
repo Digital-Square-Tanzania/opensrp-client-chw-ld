@@ -16,21 +16,18 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
-import com.github.mikephil.charting.formatter.IFillFormatter;
-import com.github.mikephil.charting.interfaces.dataprovider.LineDataProvider;
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
-import com.github.mikephil.charting.utils.Utils;
 
 import org.joda.time.DateTime;
 import org.joda.time.Period;
 import org.smartregister.chw.ld.dao.LDDao;
 import org.smartregister.chw.ld.domain.MemberObject;
+import org.smartregister.chw.ld.domain.PartographChartObject;
 import org.smartregister.chw.ld.util.Constants;
 import org.smartregister.ld.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
@@ -38,6 +35,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
     private MemberObject memberObject;
     private String baseEntityId;
     private LineChart cervixDescentChart;
+    private long startTimePartographTime;
 
     public static void startPartographMonitoringActivity(Activity activity, String baseEntityId) {
         Intent intent = new Intent(activity, PartographMonitoringActivity.class);
@@ -52,6 +50,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.baseEntityId = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID);
         this.memberObject = LDDao.getMember(baseEntityId);
+        startTimePartographTime = LDDao.getPartographStartTime(baseEntityId);
         setUpViews();
     }
 
@@ -81,19 +80,15 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         xAxis.setTextColor(Color.BLACK);
         xAxis.setDrawAxisLine(false);
         xAxis.setDrawGridLines(true);
-        xAxis.setCenterAxisLabels(true);
-        xAxis.setAxisMaximum(System.currentTimeMillis() + TimeUnit.HOURS.toMillis(16));
-        xAxis.setAxisMinimum(System.currentTimeMillis() - TimeUnit.HOURS.toMillis(8));
+        xAxis.setCenterAxisLabels(false);
+        xAxis.setAxisMaximum(startTimePartographTime + TimeUnit.HOURS.toMillis(25));
+        xAxis.setAxisMinimum(startTimePartographTime);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setGranularity(1f);
-        xAxis.setLabelCount(12);
-        xAxis.setValueFormatter(new IAxisValueFormatter() {
-            private final SimpleDateFormat mFormat = new SimpleDateFormat("HH:mm", Locale.ENGLISH);
-
-            @Override
-            public String getFormattedValue(float value, AxisBase axis) {
-                return mFormat.format(new Date((long) value));
-            }
+        xAxis.setAvoidFirstLastClipping(true);
+        xAxis.setLabelCount(12, true);
+        xAxis.setValueFormatter((value, axis) -> {
+            long diff = (long) value - (startTimePartographTime);
+            return TimeUnit.MILLISECONDS.toHours(diff) + "";
         });
 
         YAxis yAxis = cervixDescentChart.getAxisLeft();
@@ -125,16 +120,14 @@ public class PartographMonitoringActivity extends AppCompatActivity {
 
         ArrayList<Entry> values = new ArrayList<>();
 
-        long now = TimeUnit.MILLISECONDS.toHours(System.currentTimeMillis());
-
-        values.add(new Entry(TimeUnit.HOURS.toMillis(now), 3));
-        values.add(new Entry(TimeUnit.HOURS.toMillis(now + 1), 4));
-        values.add(new Entry(TimeUnit.HOURS.toMillis(now + 2), 5));
-        values.add(new Entry(TimeUnit.HOURS.toMillis(now + 3), 6));
-        values.add(new Entry(TimeUnit.HOURS.toMillis(now + 4), 7));
-        values.add(new Entry(TimeUnit.HOURS.toMillis(now + 5), 8));
-        values.add(new Entry(TimeUnit.HOURS.toMillis(now + 6), 9));
-        values.add(new Entry(TimeUnit.HOURS.toMillis(now + 7), 10));
+        values.add(new Entry(startTimePartographTime, 3));
+        values.add(new Entry(TimeUnit.HOURS.toMillis(1) + startTimePartographTime, 4));
+        values.add(new Entry(TimeUnit.HOURS.toMillis(2) + startTimePartographTime, 5));
+        values.add(new Entry(TimeUnit.HOURS.toMillis(3) + startTimePartographTime, 6));
+        values.add(new Entry(TimeUnit.HOURS.toMillis(4) + startTimePartographTime, 7));
+        values.add(new Entry(TimeUnit.HOURS.toMillis(5) + startTimePartographTime, 8));
+        values.add(new Entry(TimeUnit.HOURS.toMillis(6) + startTimePartographTime, 9));
+        values.add(new Entry(TimeUnit.HOURS.toMillis(7) + startTimePartographTime, 10));
 
         return generateLineDataSet(values, "ALERT", true, 4f, Color.RED, 10f, 1f, false, false);
     }
@@ -142,53 +135,45 @@ public class PartographMonitoringActivity extends AppCompatActivity {
     private LineDataSet setAction() {
 
         ArrayList<Entry> values = new ArrayList<>();
-        long now = TimeUnit.MILLISECONDS.toHours(System.currentTimeMillis());
 
-        values.add(new Entry(TimeUnit.HOURS.toMillis(now + 4), 3));
-        values.add(new Entry(TimeUnit.HOURS.toMillis(now + 5), 4));
-        values.add(new Entry(TimeUnit.HOURS.toMillis(now + 6), 5));
-        values.add(new Entry(TimeUnit.HOURS.toMillis(now + 7), 6));
-        values.add(new Entry(TimeUnit.HOURS.toMillis(now + 8), 7));
-        values.add(new Entry(TimeUnit.HOURS.toMillis(now + 9), 8));
-        values.add(new Entry(TimeUnit.HOURS.toMillis(now + 10), 9));
-        values.add(new Entry(TimeUnit.HOURS.toMillis(now + 11), 10));
+        values.add(new Entry(TimeUnit.HOURS.toMillis(4) + startTimePartographTime, 3));
+        values.add(new Entry(TimeUnit.HOURS.toMillis(5) + startTimePartographTime, 4));
+        values.add(new Entry(TimeUnit.HOURS.toMillis(6) + startTimePartographTime, 5));
+        values.add(new Entry(TimeUnit.HOURS.toMillis(7) + startTimePartographTime, 6));
+        values.add(new Entry(TimeUnit.HOURS.toMillis(8) + startTimePartographTime, 7));
+        values.add(new Entry(TimeUnit.HOURS.toMillis(9) + startTimePartographTime, 8));
+        values.add(new Entry(TimeUnit.HOURS.toMillis(10) + startTimePartographTime, 9));
+        values.add(new Entry(TimeUnit.HOURS.toMillis(11) + startTimePartographTime, 10));
 
         return generateLineDataSet(values, "ACTION", true, 4f, Color.RED, 10f, 1f, false, false);
     }
 
     private LineDataSet setDilation() {
-
         ArrayList<Entry> values = new ArrayList<>();
 
-        long now = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis());
-        long nowHours = TimeUnit.MILLISECONDS.toHours(System.currentTimeMillis());
+        List<PartographChartObject> cervixDilationList = LDDao.getCervixDilationList(baseEntityId);
+        if (cervixDilationList != null && !cervixDilationList.isEmpty()) {
+            for (PartographChartObject cervixDilation : cervixDilationList) {
+                values.add(new Entry(cervixDilation.getDateTime(), cervixDilation.getValue(), getResources().getDrawable(R.drawable.ic_close_icon)));
 
-        values.add(new Entry(TimeUnit.HOURS.toMillis(nowHours), 3, getResources().getDrawable(R.drawable.ic_close_icon)));
-        values.add(new Entry(TimeUnit.MINUTES.toMillis(now + 120), 7, getResources().getDrawable(R.drawable.ic_close_icon)));
-        values.add(new Entry(TimeUnit.MINUTES.toMillis(now + 240), 9, getResources().getDrawable(R.drawable.ic_close_icon)));
-        values.add(new Entry(TimeUnit.MINUTES.toMillis(now + 300), 10, getResources().getDrawable(R.drawable.ic_close_icon)));
-
+            }
+        }
 
         return generateLineDataSet(values, "Cervix Dilation", false, 2f, Color.BLACK, 10f, 3f, false, true);
-
-
     }
 
     private LineDataSet setDescent() {
 
         ArrayList<Entry> values = new ArrayList<>();
 
-        long now = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis()) - 240;
+        List<PartographChartObject> descentList = LDDao.getDescentList(baseEntityId);
+        if (descentList != null && !descentList.isEmpty()) {
+            for (PartographChartObject cervixDilation : descentList) {
+                values.add(new Entry(cervixDilation.getDateTime(), cervixDilation.getValue()));
+            }
+        }
 
-        values.add(new Entry(TimeUnit.MINUTES.toMillis(now), 4));
-        values.add(new Entry(TimeUnit.MINUTES.toMillis(now + 240), 2));
-        values.add(new Entry(TimeUnit.MINUTES.toMillis(now + 480), 1));
-        values.add(new Entry(TimeUnit.MINUTES.toMillis(now + 600), 0));
-
-
-        return generateLineDataSet(values, "Cervix Dilation", false, 2f, Color.BLACK, 10f, 4f, true, false);
-
-
+        return generateLineDataSet(values, "Head Descent", false, 2f, Color.BLACK, 10f, 4f, true, false);
     }
 
     public LineDataSet generateLineDataSet(ArrayList<Entry> values, String label, boolean showLabelOnTopOfLine,
