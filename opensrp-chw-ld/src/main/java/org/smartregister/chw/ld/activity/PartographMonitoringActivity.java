@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
@@ -31,6 +32,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
     private MemberObject memberObject;
     private String baseEntityId;
     private LineChart cervixDescentChart;
+    private LineChart fetalHeartRateChart;
     private long startTimePartographTime;
 
     public static void startPartographMonitoringActivity(Activity activity, String baseEntityId) {
@@ -58,6 +60,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
                 memberObject.getLastName(),
                 age));
         setUpCervixDescentLineChart();
+        setUpFetalHeartRateLineChart();
     }
 
     private void setUpCervixDescentLineChart() {
@@ -74,7 +77,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM_INSIDE);
         xAxis.setTextSize(10f);
         xAxis.setTextColor(Color.BLACK);
-        xAxis.setDrawAxisLine(false);
+        xAxis.setDrawAxisLine(true);
         xAxis.setDrawGridLines(true);
         xAxis.setCenterAxisLabels(false);
         xAxis.setAxisMaximum(24);
@@ -106,6 +109,80 @@ public class PartographMonitoringActivity extends AppCompatActivity {
 
         Legend l = cervixDescentChart.getLegend();
         l.setForm(Legend.LegendForm.LINE);
+        l.setStackSpace(20f);
+
+        cervixDescentChart.setExtraOffsets(5f, 5f, 5f, 15f);
+    }
+
+    private void setUpFetalHeartRateLineChart() {
+        fetalHeartRateChart = findViewById(R.id.fetal_heart_rate_chart);
+        fetalHeartRateChart.setBackgroundColor(Color.WHITE);
+        fetalHeartRateChart.getDescription().setEnabled(false);
+        fetalHeartRateChart.setTouchEnabled(true);
+        fetalHeartRateChart.setDrawGridBackground(false);
+
+        XAxis xAxis = fetalHeartRateChart.getXAxis();
+        xAxis.enableGridDashedLine(10f, 10f, 0f);
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM_INSIDE);
+        xAxis.setEnabled(true);
+        xAxis.setTextColor(Color.BLACK);
+        xAxis.setDrawAxisLine(false);
+        xAxis.setDrawGridLines(true);
+        xAxis.setCenterAxisLabels(false);
+        xAxis.setAxisMaximum(24);
+        xAxis.setAxisMinimum(0);
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setAvoidFirstLastClipping(true);
+        xAxis.setLabelCount(49, true);
+        xAxis.setDrawLabels(false);
+
+        YAxis yAxis = fetalHeartRateChart.getAxisLeft();
+        fetalHeartRateChart.getAxisRight().setEnabled(false);
+        // horizontal grid lines
+        yAxis.enableGridDashedLine(10f, 10f, 0f);
+        yAxis.setGranularityEnabled(true);
+        yAxis.setGranularity(1f);
+        yAxis.setLabelCount(13);
+
+        // axis range
+        yAxis.setAxisMaximum(180f);
+        yAxis.setAxisMinimum(60f);
+
+        // Create Limit Lines//
+        LimitLine ll1 = new LimitLine(160f, "");
+        ll1.setLineWidth(4f);
+        ll1.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);
+        ll1.setTextSize(10f);
+        ll1.setLineColor(Color.GRAY);
+
+        LimitLine ll2 = new LimitLine(120f, "");
+        ll2.setLineWidth(4f);
+        ll2.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_BOTTOM);
+        ll2.setTextSize(10f);
+        ll2.setLineColor(Color.GRAY);
+
+        // draw limit lines behind data instead of on top
+        yAxis.setDrawLimitLinesBehindData(true);
+
+        // add limit lines
+        yAxis.addLimitLine(ll1);
+        yAxis.addLimitLine(ll2);
+
+
+        // create a data object with the data sets
+        LineData data = new LineData(setFetalHeartRate());
+
+        // set data
+        fetalHeartRateChart.setData(data);
+
+        fetalHeartRateChart.animateX(1000);
+        fetalHeartRateChart.getLegend().setEnabled(true);
+
+        Legend l = fetalHeartRateChart.getLegend();
+        l.setForm(Legend.LegendForm.LINE);
+        l.setStackSpace(20f);
+
+        fetalHeartRateChart.setExtraOffsets(5f, 5f, 5f, 15f);
     }
 
     private LineDataSet setAlert() {
@@ -168,6 +245,21 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         }
 
         return generateLineDataSet(values, "Head Descent", false, 2f, Color.BLACK, 10f, 4f, true, false);
+    }
+
+    private LineDataSet setFetalHeartRate() {
+
+        ArrayList<Entry> values = new ArrayList<>();
+
+        List<PartographChartObject> fetalHeartRateList = LDDao.getFetalHeartRateList(baseEntityId);
+        if (fetalHeartRateList != null && !fetalHeartRateList.isEmpty()) {
+            for (PartographChartObject fetalHeartRate : fetalHeartRateList) {
+                float x = (fetalHeartRate.getDateTime() - startTimePartographTime) * 1f / 3600000;
+                values.add(new Entry(x, fetalHeartRate.getValue(), getResources().getDrawable(R.drawable.ic_close_icon)));
+            }
+        }
+
+        return generateLineDataSet(values, "Fetal Heart Rate", false, 2f, Color.BLUE, 10f, 4f, false, false);
     }
 
     public LineDataSet generateLineDataSet(ArrayList<Entry> values, String label, boolean showLabelOnTopOfLine,

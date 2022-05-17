@@ -6,12 +6,50 @@
     android:layout_height="match_parent"
     tools:context="org.smartregister.chw.ld.activity.PartographMonitoringActivity">
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/cervix_descent_chart"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+    <org.smartregister.view.customcontrols.CustomFontTextView
+        android:id="@+id/fetal_heart_rate_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fetal_heart_rate_chart_title"
+        android:textSize="18sp"
+        style="@style/CustomFontTextViewStyle.Header.Black"
+        android:paddingTop="8dp"
+        app:layout_constraintBottom_toTopOf="@id/fetal_heart_rate_chart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/fetal_heart_rate_chart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/cervix_descent_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fetal_heart_rate_title" />
+
+
+    <org.smartregister.view.customcontrols.CustomFontTextView
+        android:id="@+id/cervix_descent_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cervix_and_descent_of_head_chart_title"
+        android:textSize="18sp"
+        style="@style/CustomFontTextViewStyle.Header.Black"
+        android:paddingTop="8dp"
+        app:layout_constraintBottom_toTopOf="@id/cervix_descent_chart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fetal_heart_rate_chart" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/cervix_descent_chart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cervix_descent_title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
