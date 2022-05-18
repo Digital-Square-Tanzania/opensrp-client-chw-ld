@@ -249,6 +249,29 @@ public class LDDao extends AbstractDao {
         return null;
     }
 
+
+    public static String getModeOfDelivery(String baseEntityId) {
+        String sql = "SELECT mode_of_delivery FROM " + Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "mode_of_delivery");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
+    public static String getHivStatus(String baseEntityId) {
+        String sql = "SELECT hiv FROM " + Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "hiv");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
     public static Long getPartographStartTime(String baseEntityId) {
         String sql = "SELECT partograph_date, partograph_time FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with LIMIT 1";
 
