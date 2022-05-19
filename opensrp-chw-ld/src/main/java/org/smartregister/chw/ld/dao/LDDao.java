@@ -225,6 +225,17 @@ public class LDDao extends AbstractDao {
         return null;
     }
 
+    public static String getAmnioticFluidState(String baseEntityId) {
+        String sql = "SELECT amniotic_fluid FROM " + Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "amniotic_fluid");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
 
     public static String getMoulding(String baseEntityId) {
         String sql = "SELECT moulding FROM " + Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
