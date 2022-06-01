@@ -28,6 +28,18 @@ public class LDDao extends AbstractDao {
         return res.get(0);
     }
 
+    public static String getReasonsForAdmission(String baseEntityID) {
+        String sql = "select reasons_for_admission from " + Constants.TABLES.LD_CONFIRMATION + " where base_entity_id = '" + baseEntityID + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "reasons_for_admission");
+
+        List<String> res = readData(sql, dataMap);
+        if (res == null || res.size() != 1)
+            return null;
+
+        return res.get(0);
+    }
+
     public static Date getLDFollowUpVisitDate(String baseEntityID) {
         String sql = "SELECT eventDate FROM event where eventType ='LD Follow-up Visit' AND baseEntityId ='" + baseEntityID + "'";
 
