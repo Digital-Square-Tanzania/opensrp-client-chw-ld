@@ -15,6 +15,8 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IValueFormatter;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import org.joda.time.DateTime;
 import org.joda.time.Period;
@@ -24,7 +26,9 @@ import org.smartregister.chw.ld.domain.PartographChartObject;
 import org.smartregister.chw.ld.util.Constants;
 import org.smartregister.ld.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -34,6 +38,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
     private LineChart cervixDescentChart;
     private LineChart fetalHeartRateChart;
     private long startTimePartographTime;
+    private ArrayList<Float> timeLabelsForDilationAndDescentGraphsXValues = new ArrayList<>();
 
     public static void startPartographMonitoringActivity(Activity activity, String baseEntityId) {
         Intent intent = new Intent(activity, PartographMonitoringActivity.class);
@@ -69,7 +74,6 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         cervixDescentChart.getDescription().setEnabled(false);
         cervixDescentChart.setTouchEnabled(true);
         cervixDescentChart.setDrawGridBackground(false);
-        // force pinch zoom along both axis
         cervixDescentChart.setPinchZoom(true);
 
         XAxis xAxis = cervixDescentChart.getXAxis();
@@ -99,13 +103,16 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         yAxis.setAxisMinimum(0f);
 
         // create a data object with the data sets
-        LineData data = new LineData(setDescent(), setDilation(), setAlert(), setAction());
+
+        LineDataSet dilationLineDataSet = setDilation();
+        LineDataSet descentLineDataSet = setDescent();
+        LineData data = new LineData(descentLineDataSet, dilationLineDataSet, setLatentPhase(), setAlert(), setAction(), setTimeLabelsForDilationAndDescentGraphs());
 
         // set data
         cervixDescentChart.setData(data);
 
         cervixDescentChart.animateX(1000);
-        cervixDescentChart.getLegend().setEnabled(true);
+        cervixDescentChart.getLegend().setEnabled(false);
 
         Legend l = cervixDescentChart.getLegend();
         l.setForm(Legend.LegendForm.LINE);
@@ -185,18 +192,28 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         fetalHeartRateChart.setExtraOffsets(5f, 5f, 5f, 15f);
     }
 
-    private LineDataSet setAlert() {
+    private LineDataSet setLatentPhase() {
 
         ArrayList<Entry> values = new ArrayList<>();
 
         values.add(new Entry(0, 3));
-        values.add(new Entry(1, 4));
-        values.add(new Entry(2, 5));
-        values.add(new Entry(3, 6));
-        values.add(new Entry(4, 7));
-        values.add(new Entry(5, 8));
-        values.add(new Entry(6, 9));
-        values.add(new Entry(7, 10));
+        values.add(new Entry(8, 3));
+
+        return generateLineDataSet(values, "Latent Phase", true, 4f, Color.BLACK, 10f, 1f, false, false);
+    }
+
+    private LineDataSet setAlert() {
+
+        ArrayList<Entry> values = new ArrayList<>();
+
+        values.add(new Entry(8, 3));
+        values.add(new Entry(9, 4));
+        values.add(new Entry(10, 5));
+        values.add(new Entry(11, 6));
+        values.add(new Entry(12, 7));
+        values.add(new Entry(13, 8));
+        values.add(new Entry(14, 9));
+        values.add(new Entry(15, 10));
 
         return generateLineDataSet(values, "ALERT", true, 4f, Color.RED, 10f, 1f, false, false);
     }
@@ -205,14 +222,14 @@ public class PartographMonitoringActivity extends AppCompatActivity {
 
         ArrayList<Entry> values = new ArrayList<>();
 
-        values.add(new Entry(4, 3));
-        values.add(new Entry(5, 4));
-        values.add(new Entry(6, 5));
-        values.add(new Entry(7, 6));
-        values.add(new Entry(8, 7));
-        values.add(new Entry(9, 8));
-        values.add(new Entry(10, 9));
-        values.add(new Entry(11, 10));
+        values.add(new Entry(12, 3));
+        values.add(new Entry(13, 4));
+        values.add(new Entry(14, 5));
+        values.add(new Entry(15, 6));
+        values.add(new Entry(16, 7));
+        values.add(new Entry(17, 8));
+        values.add(new Entry(18, 9));
+        values.add(new Entry(19, 10));
 
         return generateLineDataSet(values, "ACTION", true, 4f, Color.RED, 10f, 1f, false, false);
     }
@@ -223,9 +240,13 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         List<PartographChartObject> cervixDilationList = LDDao.getCervixDilationList(baseEntityId);
         if (cervixDilationList != null && !cervixDilationList.isEmpty()) {
             for (PartographChartObject cervixDilation : cervixDilationList) {
-                float x = (cervixDilation.getDateTime() - startTimePartographTime) * 1f / 3600000;
+                //Adding 28800000 milliseconds to offset the graph to 8 hours as per tanzania guidelines
+                //this should be refactored to make it more configurable
+                float x = (cervixDilation.getDateTime() - startTimePartographTime + 28800000) * 1f / 3600000;
                 values.add(new Entry(x, cervixDilation.getValue(), getResources().getDrawable(R.drawable.ic_close_icon)));
 
+                //Setting values for displaying time labels at the bottom of the partograph
+                timeLabelsForDilationAndDescentGraphsXValues.add(x);
             }
         }
 
@@ -239,8 +260,15 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         List<PartographChartObject> descentList = LDDao.getDescentList(baseEntityId);
         if (descentList != null && !descentList.isEmpty()) {
             for (PartographChartObject cervixDilation : descentList) {
-                float x = (cervixDilation.getDateTime() - startTimePartographTime) * 1f / 3600000;
+                //Adding 28800000 milliseconds to offset the graph to 8 hours as per tanzania guidelines
+                //this should be refactored to make it more configurable
+                float x = (cervixDilation.getDateTime() - startTimePartographTime + 28800000) * 1f / 3600000;
                 values.add(new Entry(x, cervixDilation.getValue(), getResources().getDrawable(R.drawable.ic_close_icon)));
+
+                //Setting values for displaying time labels at the bottom of the partograph
+                if (!timeLabelsForDilationAndDescentGraphsXValues.contains(x)) {
+                    timeLabelsForDilationAndDescentGraphsXValues.add(x);
+                }
             }
         }
 
@@ -254,12 +282,38 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         List<PartographChartObject> fetalHeartRateList = LDDao.getFetalHeartRateList(baseEntityId);
         if (fetalHeartRateList != null && !fetalHeartRateList.isEmpty()) {
             for (PartographChartObject fetalHeartRate : fetalHeartRateList) {
-                float x = (fetalHeartRate.getDateTime() - startTimePartographTime) * 1f / 3600000;
+                //Adding 28800000 milliseconds to offset the graph to 8 hours as per tanzania guidelines
+                //this should be refactored to make it more configurable
+                float x = (fetalHeartRate.getDateTime() - startTimePartographTime + 28800000) * 1f / 3600000;
                 values.add(new Entry(x, fetalHeartRate.getValue(), getResources().getDrawable(R.drawable.ic_close_icon)));
             }
         }
 
         return generateLineDataSet(values, "Fetal Heart Rate", false, 2f, Color.BLUE, 10f, 4f, false, false);
+    }
+
+    private LineDataSet setTimeLabelsForDilationAndDescentGraphs() {
+        ArrayList<Entry> values = new ArrayList<>();
+        for (int i = 0; i < timeLabelsForDilationAndDescentGraphsXValues.size(); i++) {
+            values.add(new Entry(timeLabelsForDilationAndDescentGraphsXValues.get(i), 0));
+        }
+
+        LineDataSet timeLabels = generateLineDataSet(values, "", false, 0f, Color.TRANSPARENT, 10f, 4f, false, false);
+
+        // text size of labels
+        timeLabels.setValueTextSize(9f);
+
+        timeLabels.setValueFormatter(new IValueFormatter() {
+            private final SimpleDateFormat mFormat = new SimpleDateFormat("HH:mm", Locale.ENGLISH);
+
+            @Override
+            public String getFormattedValue(float v, Entry entry, int i, ViewPortHandler viewPortHandler) {
+                long timeInMilliseconds = (long) (entry.getX() * 3600000 + startTimePartographTime - 28800000);
+
+                return mFormat.format(new Date(timeInMilliseconds));
+            }
+        });
+        return timeLabels;
     }
 
     public LineDataSet generateLineDataSet(ArrayList<Entry> values, String label, boolean showLabelOnTopOfLine,
@@ -269,12 +323,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         alarmDataSet.setShowLabelOnTopOfLine(showLabelOnTopOfLine);
 
         alarmDataSet.setTextSize(labelTextSize);
-//        alarmDataSet.setTypeface(tfRegular);
-
-
         alarmDataSet.setDrawIcons(setDrawIcon);
-        // draw dashed line
-//            alarmDataSet.enableDashedLine(10f, 5f, 0f);
 
         // black lines and points
         alarmDataSet.setColor(lineColor);

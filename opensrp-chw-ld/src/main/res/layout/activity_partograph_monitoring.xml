@@ -46,10 +46,58 @@
         android:id="@+id/cervix_descent_chart"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/legend"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cervix_descent_title" />
+
+    <RelativeLayout
+        android:id="@+id/legend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/cervix_dilation_icon"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_close" />
+
+        <TextView
+            android:id="@+id/cervix_dilation_label"
+            android:layout_toRightOf="@id/cervix_dilation_icon"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textColor="@color/black"
+            android:text="-- Cervix Dilation"/>
+
+        <ImageView
+            android:id="@+id/head_descent_icon"
+            android:layout_toRightOf="@id/cervix_dilation_label"
+            android:layout_centerVertical="true"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/ic_circle_icon" />
+
+        <TextView
+            android:id="@+id/head_descent_label"
+            android:layout_toRightOf="@id/head_descent_icon"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textColor="@color/black"
+            android:text="-- Head Descent"/>
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
