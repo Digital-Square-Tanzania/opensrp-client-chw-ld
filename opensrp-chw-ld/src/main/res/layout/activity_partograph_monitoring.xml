@@ -1,103 +1,4241 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="org.smartregister.chw.ld.activity.PartographMonitoringActivity">
 
-    <org.smartregister.view.customcontrols.CustomFontTextView
-        android:id="@+id/fetal_heart_rate_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/fetal_heart_rate_chart_title"
-        android:textSize="18sp"
-        style="@style/CustomFontTextViewStyle.Header.Black"
-        android:paddingTop="8dp"
-        app:layout_constraintBottom_toTopOf="@id/fetal_heart_rate_chart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/fetal_heart_rate_chart"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/cervix_descent_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fetal_heart_rate_title" />
-
-
-    <org.smartregister.view.customcontrols.CustomFontTextView
-        android:id="@+id/cervix_descent_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cervix_and_descent_of_head_chart_title"
-        android:textSize="18sp"
-        style="@style/CustomFontTextViewStyle.Header.Black"
-        android:paddingTop="8dp"
-        app:layout_constraintBottom_toTopOf="@id/cervix_descent_chart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fetal_heart_rate_chart" />
-
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/cervix_descent_chart"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/legend"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cervix_descent_title" />
-
-    <RelativeLayout
-        android:id="@+id/legend"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="8dp"
-        android:background="@color/white">
+        android:background="#FFF"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/cervix_dilation_icon"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_close" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/cervix_dilation_label"
-            android:layout_toRightOf="@id/cervix_dilation_icon"
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/fetal_heart_rate_title"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="right"
+                android:paddingTop="8dp"
+                android:text="Fetal\nHeart\nRate"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/fetal_heart_rate_chart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginStart="96dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/amniotic_fluid_label"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:gravity="end"
+                android:paddingEnd="2dp"
+                android:text="Amniotic Fluid"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/moulding_label"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/amniotic_fluid_label"
+                android:gravity="end"
+                android:paddingEnd="2dp"
+                android:text="Moulding"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/caput_label"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/moulding_label"
+                android:gravity="end"
+                android:paddingEnd="2dp"
+                android:text="Caput"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="127dp"
+                android:layout_marginEnd="14dp"
+                android:background="#CCC"
+                android:paddingTop="1dp"
+                android:stretchColumns="0">
+
+                <TableRow
+                    android:id="@+id/amniotic_fluid"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#CCC"
+                    android:paddingRight="1dp"
+                    android:paddingBottom="1dp">
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid1"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:textSize="12sp"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid2"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:textSize="12sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid3"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid4"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid5"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid6"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid7"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid8"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid9"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid10"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid11"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid12"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid13"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid14"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid15"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid16"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid17"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid18"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid19"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid20"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid21"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid22"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid23"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/amniotic_fluid24"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:textSize="12sp" />
+
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/moulding"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#CCC"
+                    android:paddingRight="1dp"
+                    android:paddingBottom="1dp">
+
+                    <TextView
+                        android:id="@+id/moulding1"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding2"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding3"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding4"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding5"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding6"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding7"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding8"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding9"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding10"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding11"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding12"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding13"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding14"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding15"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding16"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding17"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding18"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding19"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding20"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding21"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding22"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding23"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/moulding24"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/caput"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#CCC"
+                    android:paddingRight="1dp"
+                    android:paddingBottom="1dp">
+
+                    <TextView
+                        android:id="@+id/caput1"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput2"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput3"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput4"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput5"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput6"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput7"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput8"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput9"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput10"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput11"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput12"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput13"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput14"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput15"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput16"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput17"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput18"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput19"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput20"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput21"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput22"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput23"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/caput24"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:textSize="12sp" />
+
+
+                </TableRow>
+            </TableLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/cervix_descent_title"
+                android:layout_width="96dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="right"
+                android:paddingTop="8dp"
+                android:text="Cervix Dilation &amp; \nHead Descent"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/cervix_descent_chart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginStart="96dp" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/legend"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="10sp"
-            android:textColor="@color/black"
-            android:text="-- Cervix Dilation"/>
+            android:background="@color/white"
+            android:paddingStart="128dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp">
 
-        <ImageView
-            android:id="@+id/head_descent_icon"
-            android:layout_toRightOf="@id/cervix_dilation_label"
-            android:layout_centerVertical="true"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_marginLeft="16dp"
-            android:src="@drawable/ic_circle_icon" />
+            <ImageView
+                android:id="@+id/cervix_dilation_icon"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_close" />
 
-        <TextView
-            android:id="@+id/head_descent_label"
-            android:layout_toRightOf="@id/head_descent_icon"
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/cervix_dilation_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/cervix_dilation_icon"
+                android:text="--  Cervix Dilation"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/head_descent_icon"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:layout_toRightOf="@id/cervix_dilation_label"
+                android:src="@drawable/ic_circle_icon" />
+
+            <TextView
+                android:id="@+id/head_descent_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/head_descent_icon"
+                android:text="--  Head Descent"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="10sp"
-            android:textColor="@color/black"
-            android:text="-- Head Descent"/>
+            android:layout_marginTop="16dp">
 
-    </RelativeLayout>
+            <TextView
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:gravity="end"
+                android:text="Contractions per \n10 minutes"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/contractions_label_5"
+                android:layout_width="122dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:paddingEnd="2dp"
+                android:text="5"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/contractions_label_4"
+                android:layout_width="122dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contractions_label_5"
+                android:layout_marginTop="2dp"
+                android:gravity="end"
+                android:paddingEnd="2dp"
+                android:text="4"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/contractions_label_3"
+                android:layout_width="122dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contractions_label_4"
+                android:layout_marginTop="2dp"
+                android:gravity="end"
+                android:paddingEnd="2dp"
+                android:text="3"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/contractions_label_2"
+                android:layout_width="122dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contractions_label_3"
+                android:layout_marginTop="2dp"
+                android:gravity="end"
+                android:paddingEnd="2dp"
+                android:text="2"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/contractions_label_1"
+                android:layout_width="122dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contractions_label_2"
+                android:layout_marginTop="2dp"
+                android:gravity="end"
+                android:paddingEnd="2dp"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TableLayout
+                android:id="@+id/contractions_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="127dp"
+                android:layout_marginEnd="14dp"
+                android:background="#CCC"
+                android:paddingTop="1dp"
+                android:stretchColumns="0">
+
+                <TableRow
+                    android:id="@+id/contractions_5"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#CCC"
+                    android:paddingRight="1dp"
+                    android:paddingBottom="1dp">
+
+                    <ImageView
+                        android:id="@+id/contractions_5_1"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_2"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_3"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_4"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_5"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_6"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_7"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_8"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_9"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_10"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_11"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_12"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_13"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_14"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_15"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_16"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_17"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_18"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_19"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_20"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_21"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_22"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_23"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_24"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/contractions_4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#CCC"
+                    android:paddingRight="1dp"
+                    android:paddingBottom="1dp">
+
+                    <ImageView
+                        android:id="@+id/contractions_4_1"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_2"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_3"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_4"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_5"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_6"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_7"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_8"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_9"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_10"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_11"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_12"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_13"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_14"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_15"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_16"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_17"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_18"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_19"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_20"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_21"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_22"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_23"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_24"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/contractions_3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#CCC"
+                    android:paddingRight="1dp"
+                    android:paddingBottom="1dp">
+
+                    <ImageView
+                        android:id="@+id/contractions_3_1"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_2"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_3"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_4"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_5"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_6"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_7"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_8"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_9"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_10"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_11"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_12"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_13"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_14"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_15"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_16"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_17"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_18"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_19"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_20"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_21"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_22"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_23"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_24"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/contractions_2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#CCC"
+                    android:paddingRight="1dp"
+                    android:paddingBottom="1dp">
+
+                    <ImageView
+                        android:id="@+id/contractions_2_1"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_2"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_3"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_4"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_5"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_6"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_7"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_8"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_9"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_10"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_11"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_12"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_13"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_14"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_15"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_16"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_17"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_18"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_19"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_20"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_21"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_22"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_23"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_24"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/contractions_1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#CCC"
+                    android:paddingRight="1dp"
+                    android:paddingBottom="1dp">
+
+                    <ImageView
+                        android:id="@+id/contractions_1_1"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_2"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_3"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_4"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_5"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_6"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_7"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_8"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_9"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_10"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_11"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_12"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_13"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_14"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_15"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_16"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_17"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_18"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_19"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_20"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_21"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_22"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_23"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_24"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                </TableRow>
+            </TableLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/oxytocin_label"
+                android:layout_width="122dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:paddingEnd="2dp"
+                android:text="Oxytocin"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/drops_label"
+                android:layout_width="122dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/oxytocin_label"
+                android:gravity="end"
+                android:paddingEnd="2dp"
+                android:text="Drops/min"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TableLayout
+                android:id="@+id/contractions_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="127dp"
+                android:layout_marginEnd="14dp"
+                android:background="#CCC"
+                android:paddingTop="1dp"
+                android:stretchColumns="0">
+
+                <TableRow
+                    android:id="@+id/oxytocin"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#CCC"
+                    android:paddingRight="1dp"
+                    android:paddingBottom="1dp">
+
+                    <TextView
+                        android:id="@+id/oxytocin_1"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_2"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_3"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_4"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_5"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_6"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_7"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_8"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_9"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_10"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_11"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_12"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_13"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_14"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_15"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_16"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_17"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_18"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_19"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_20"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_21"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_22"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_23"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/oxytocin_24"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/drops"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#CCC"
+                    android:paddingRight="1dp"
+                    android:paddingBottom="1dp">
+
+                    <TextView
+                        android:id="@+id/drops_1"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_2"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_3"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_4"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_5"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_6"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_7"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_8"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_9"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_10"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_11"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_12"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_13"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_14"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_15"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_16"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_17"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_18"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_19"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_20"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_21"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_22"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_23"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drops_24"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                </TableRow>
+            </TableLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/drugs_given_label"
+                android:layout_width="122dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="end"
+                android:paddingEnd="2dp"
+                android:text="Drugs given and IV fluids"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TableLayout
+                android:id="@+id/drugs_given_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="127dp"
+                android:layout_marginEnd="14dp"
+                android:background="#CCC"
+                android:paddingTop="1dp"
+                android:stretchColumns="0">
+
+                <TableRow
+                    android:id="@+id/drugs_given"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#CCC"
+                    android:paddingRight="1dp"
+                    android:paddingBottom="1dp">
+
+                    <TextView
+                        android:id="@+id/drugs_given_1"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_2"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_3"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_4"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_5"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_6"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_7"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_8"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_9"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_10"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_11"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_12"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_13"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_14"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_15"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_16"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_17"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_18"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_19"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_20"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_21"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_22"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_23"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/drugs_given_24"
+                        android:layout_width="0dip"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+
+                </TableRow>
+            </TableLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/pulse_and_bp_title"
+                android:layout_width="96dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="right"
+                android:paddingTop="8dp"
+                android:text="Pulse &amp;\nBlood Pressure"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/pulse_and_bp"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginStart="102dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/temp_label"
+                android:layout_width="122dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:paddingEnd="2dp"
+                android:text="Temp  \u2103 "
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TableLayout
+                android:id="@+id/contractions_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="127dp"
+                android:layout_marginEnd="14dp"
+                android:background="#CCC"
+                android:paddingTop="1dp"
+                android:stretchColumns="0">
+
+                <TableRow
+                    android:id="@+id/temp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#CCC"
+                    android:paddingRight="1dp"
+                    android:paddingBottom="1dp">
+
+                    <TextView
+                        android:id="@+id/temp_1"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_2"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_3"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_4"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_5"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_6"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_7"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_8"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_9"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_10"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_11"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_12"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_13"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_14"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_15"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_16"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_17"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_18"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_19"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_20"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_21"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_22"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_23"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/temp_24"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                </TableRow>
+            </TableLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/protein_label"
+                android:layout_width="122dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:paddingEnd="2dp"
+                android:text="Urine Protein"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/acetone_label"
+                android:layout_width="122dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/protein_label"
+                android:layout_marginTop="2dp"
+                android:gravity="end"
+                android:paddingEnd="2dp"
+                android:text="Urine Acetone"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/volume_label"
+                android:layout_width="122dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/acetone_label"
+                android:layout_marginTop="2dp"
+                android:gravity="end"
+                android:paddingEnd="2dp"
+                android:text="Urine Volume"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TableLayout
+                android:id="@+id/urine_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="127dp"
+                android:layout_marginEnd="14dp"
+                android:background="#CCC"
+                android:paddingTop="1dp"
+                android:stretchColumns="0">
+
+                <TableRow
+                    android:id="@+id/protein"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#CCC"
+                    android:paddingRight="1dp"
+                    android:paddingBottom="1dp">
+
+                    <TextView
+                        android:id="@+id/protein_1"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_2"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_3"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_4"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_5"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_6"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_7"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_8"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_9"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_10"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_11"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_12"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_13"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_14"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_15"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_16"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_17"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_18"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_19"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_20"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_21"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_22"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_23"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/protein_24"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/acetone"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#CCC"
+                    android:paddingRight="1dp"
+                    android:paddingBottom="1dp">
+
+                    <TextView
+                        android:id="@+id/acetone_1"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_2"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_3"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_4"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_5"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_6"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_7"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_8"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_9"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_10"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_11"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_12"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_13"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_14"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_15"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_16"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_17"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_18"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_19"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_20"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_21"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_22"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_23"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/acetone_24"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/volume"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#CCC"
+                    android:paddingRight="1dp"
+                    android:paddingBottom="1dp">
+
+                    <TextView
+                        android:id="@+id/volume_1"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_2"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_3"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_4"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_5"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_6"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_7"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_8"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_9"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_10"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_11"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_12"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_13"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_14"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_15"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_16"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_17"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_18"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_19"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_20"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_21"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_22"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_23"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/volume_24"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                </TableRow>
+            </TableLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>
