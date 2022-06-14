@@ -1,7 +1,10 @@
 package org.smartregister.chw.ld.dao;
 
 import org.smartregister.chw.ld.domain.MemberObject;
+import org.smartregister.chw.ld.domain.PartographChartBloodPressureObject;
 import org.smartregister.chw.ld.domain.PartographChartObject;
+import org.smartregister.chw.ld.domain.PartographContractionObject;
+import org.smartregister.chw.ld.domain.PartographDataObject;
 import org.smartregister.chw.ld.util.Constants;
 import org.smartregister.dao.AbstractDao;
 import org.smartregister.util.Utils;
@@ -319,7 +322,7 @@ public class LDDao extends AbstractDao {
         return null;
     }
 
-    public static List<PartographChartObject> getCervixDilationList(String baseEntityId) {
+    public static List<PartographChartObject> getPartographCervixDilationList(String baseEntityId) {
         String sql = "SELECT partograph_date, partograph_time, cervix_dilation FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND cervix_dilation IS NOT NULL";
 
         DataMap<PartographChartObject> dataMap = cursor -> {
@@ -343,7 +346,7 @@ public class LDDao extends AbstractDao {
         return null;
     }
 
-    public static List<PartographChartObject> getFetalHeartRateList(String baseEntityId) {
+    public static List<PartographChartObject> getPartographFetalHeartRateList(String baseEntityId) {
         String sql = "SELECT  partograph_date, partograph_time,fetal_heart_rate FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND fetal_heart_rate IS NOT NULL";
 
         DataMap<PartographChartObject> dataMap = cursor -> {
@@ -367,7 +370,248 @@ public class LDDao extends AbstractDao {
         return null;
     }
 
-    public static List<PartographChartObject> getDescentList(String baseEntityId) {
+    public static List<PartographChartObject> getPartographTemperatureList(String baseEntityId) {
+        String sql = "SELECT  partograph_date, partograph_time,temperature FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND temperature IS NOT NULL";
+
+        DataMap<PartographChartObject> dataMap = cursor -> {
+            String partographDate = getCursorValue(cursor, "partograph_date", "");
+            String partographTime = getCursorValue(cursor, "partograph_time", "");
+
+            String concatText = partographDate + " " + partographTime;
+
+            try {
+                Date parseDate = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).parse(concatText);
+                return new PartographChartObject(parseDate.getTime(), getCursorIntValue(cursor, "temperature", 0));
+            } catch (ParseException e) {
+                Timber.e(e);
+            }
+            return null;
+        };
+
+        List<PartographChartObject> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res;
+        return null;
+    }
+
+    public static List<PartographDataObject> getPartographUrineProteinList(String baseEntityId) {
+        String sql = "SELECT  partograph_date, partograph_time, urine_protein FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND urine_protein IS NOT NULL";
+
+        DataMap<PartographDataObject> dataMap = cursor -> {
+            String partographDate = getCursorValue(cursor, "partograph_date", "");
+            String partographTime = getCursorValue(cursor, "partograph_time", "");
+
+            String concatText = partographDate + " " + partographTime;
+
+            try {
+                Date parseDate = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).parse(concatText);
+                return new PartographDataObject(parseDate.getTime(), getCursorValue(cursor, "urine_protein"));
+            } catch (ParseException e) {
+                Timber.e(e);
+            }
+            return null;
+        };
+
+        List<PartographDataObject> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res;
+        return null;
+    }
+
+    public static List<PartographDataObject> getPartographUrineAcetoneList(String baseEntityId) {
+        String sql = "SELECT  partograph_date, partograph_time, urine_acetone FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND urine_acetone IS NOT NULL";
+
+        DataMap<PartographDataObject> dataMap = cursor -> {
+            String partographDate = getCursorValue(cursor, "partograph_date", "");
+            String partographTime = getCursorValue(cursor, "partograph_time", "");
+
+            String concatText = partographDate + " " + partographTime;
+
+            try {
+                Date parseDate = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).parse(concatText);
+                return new PartographDataObject(parseDate.getTime(), getCursorValue(cursor, "urine_acetone"));
+            } catch (ParseException e) {
+                Timber.e(e);
+            }
+            return null;
+        };
+
+        List<PartographDataObject> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res;
+        return null;
+    }
+
+    public static List<PartographDataObject> getPartographUrineVolumeList(String baseEntityId) {
+        String sql = "SELECT  partograph_date, partograph_time, urine_volume FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND urine_volume IS NOT NULL";
+
+        DataMap<PartographDataObject> dataMap = cursor -> {
+            String partographDate = getCursorValue(cursor, "partograph_date", "");
+            String partographTime = getCursorValue(cursor, "partograph_time", "");
+
+            String concatText = partographDate + " " + partographTime;
+
+            try {
+                Date parseDate = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).parse(concatText);
+                return new PartographDataObject(parseDate.getTime(), getCursorValue(cursor, "urine_volume"));
+            } catch (ParseException e) {
+                Timber.e(e);
+            }
+            return null;
+        };
+
+        List<PartographDataObject> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res;
+        return null;
+    }
+
+    public static List<PartographChartObject> getPartographPulseList(String baseEntityId) {
+        String sql = "SELECT  partograph_date, partograph_time, pulse_rate FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND pulse_rate IS NOT NULL";
+
+        DataMap<PartographChartObject> dataMap = cursor -> {
+            String partographDate = getCursorValue(cursor, "partograph_date", "");
+            String partographTime = getCursorValue(cursor, "partograph_time", "");
+
+            String concatText = partographDate + " " + partographTime;
+
+            try {
+                Date parseDate = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).parse(concatText);
+                return new PartographChartObject(parseDate.getTime(), getCursorIntValue(cursor, "pulse_rate", 0));
+            } catch (ParseException e) {
+                Timber.e(e);
+            }
+            return null;
+        };
+
+        List<PartographChartObject> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res;
+        return null;
+    }
+
+    public static List<PartographChartBloodPressureObject> getPartographSystolicDiastolicPressure(String baseEntityId) {
+        String sql = "SELECT  partograph_date, partograph_time, systolic, diastolic FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND systolic IS NOT NULL AND diastolic IS NOT NULL";
+
+        DataMap<PartographChartBloodPressureObject> dataMap = cursor -> {
+            String partographDate = getCursorValue(cursor, "partograph_date", "");
+            String partographTime = getCursorValue(cursor, "partograph_time", "");
+
+            String concatText = partographDate + " " + partographTime;
+
+            try {
+                Date parseDate = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).parse(concatText);
+                return new PartographChartBloodPressureObject(parseDate.getTime(), getCursorIntValue(cursor, "systolic", 0), getCursorIntValue(cursor, "diastolic", 0));
+            } catch (ParseException e) {
+                Timber.e(e);
+            }
+            return null;
+        };
+
+        List<PartographChartBloodPressureObject> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res;
+        return null;
+    }
+
+
+    public static List<PartographDataObject> getPartographAmnioticFluidList(String baseEntityId) {
+        String sql = "SELECT  partograph_date, partograph_time, amniotic_fluid FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND amniotic_fluid IS NOT NULL";
+
+        DataMap<PartographDataObject> dataMap = cursor -> {
+            String partographDate = getCursorValue(cursor, "partograph_date", "");
+            String partographTime = getCursorValue(cursor, "partograph_time", "");
+
+            String concatText = partographDate + " " + partographTime;
+
+            try {
+                Date parseDate = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).parse(concatText);
+                return new PartographDataObject(parseDate.getTime(), getCursorValue(cursor, "amniotic_fluid"));
+            } catch (ParseException e) {
+                Timber.e(e);
+            }
+            return null;
+        };
+
+        List<PartographDataObject> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res;
+        return null;
+    }
+
+    public static List<PartographDataObject> getPartographMouldingList(String baseEntityId) {
+        String sql = "SELECT  partograph_date, partograph_time, moulding_options FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND moulding_options IS NOT NULL";
+
+        DataMap<PartographDataObject> dataMap = cursor -> {
+            String partographDate = getCursorValue(cursor, "partograph_date", "");
+            String partographTime = getCursorValue(cursor, "partograph_time", "");
+
+            String concatText = partographDate + " " + partographTime;
+
+            try {
+                Date parseDate = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).parse(concatText);
+                return new PartographDataObject(parseDate.getTime(), getCursorValue(cursor, "moulding_options"));
+            } catch (ParseException e) {
+                Timber.e(e);
+            }
+            return null;
+        };
+
+        List<PartographDataObject> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res;
+        return null;
+    }
+
+    public static List<PartographDataObject> getPartographCaputList(String baseEntityId) {
+        String sql = "SELECT  partograph_date, partograph_time, caput FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND caput IS NOT NULL";
+
+        DataMap<PartographDataObject> dataMap = cursor -> {
+            String partographDate = getCursorValue(cursor, "partograph_date", "");
+            String partographTime = getCursorValue(cursor, "partograph_time", "");
+
+            String concatText = partographDate + " " + partographTime;
+
+            try {
+                Date parseDate = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).parse(concatText);
+                return new PartographDataObject(parseDate.getTime(), getCursorValue(cursor, "caput"));
+            } catch (ParseException e) {
+                Timber.e(e);
+            }
+            return null;
+        };
+
+        List<PartographDataObject> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res;
+        return null;
+    }
+
+    public static List<PartographContractionObject> getPartographContractionsList(String baseEntityId) {
+        String sql = "SELECT  partograph_date, partograph_time, contraction_every_half_hour_frequency, contraction_every_half_hour_time FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND contraction_every_half_hour_frequency IS NOT NULL AND contraction_every_half_hour_time IS NOT NULL";
+
+        DataMap<PartographContractionObject> dataMap = cursor -> {
+            String partographDate = getCursorValue(cursor, "partograph_date", "");
+            String partographTime = getCursorValue(cursor, "partograph_time", "");
+
+            String concatText = partographDate + " " + partographTime;
+
+            try {
+                Date parseDate = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).parse(concatText);
+                return new PartographContractionObject(parseDate.getTime(), "", getCursorIntValue(cursor, "contraction_every_half_hour_frequency", 0), getCursorValue(cursor, "contraction_every_half_hour_time"));
+            } catch (ParseException e) {
+                Timber.e(e);
+            }
+            return null;
+        };
+
+        List<PartographContractionObject> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res;
+        return null;
+    }
+
+    public static List<PartographChartObject> getPartographDescentList(String baseEntityId) {
         String sql = "SELECT partograph_date, partograph_time, descent_presenting_part FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND descent_presenting_part IS NOT NULL";
 
         DataMap<PartographChartObject> dataMap = cursor -> {
