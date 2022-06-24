@@ -48,7 +48,6 @@ public class PartographMonitoringActivity extends AppCompatActivity {
     private LineChart pulseRateChart;
     private long startTimePartographTime;
     private ArrayList<Float> timeLabelsForDilationAndDescentGraphsXValues = new ArrayList<>();
-    private int startingCervixDilation;
     private long partographOffset;
 
     public static void startPartographMonitoringActivity(Activity activity, String baseEntityId) {
@@ -65,6 +64,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         this.baseEntityId = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID);
         this.memberObject = LDDao.getMember(baseEntityId);
         startTimePartographTime = LDDao.getPartographStartTime(baseEntityId);
+        int startingCervixDilation;
         try {
             startingCervixDilation = LDDao.getPartographCervixDilationList(baseEntityId).get(0).getValue();
         } catch (Exception e) {
