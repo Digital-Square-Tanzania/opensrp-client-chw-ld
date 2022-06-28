@@ -36,6 +36,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import timber.log.Timber;
 
@@ -47,6 +48,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
     private LineChart pulseRateChart;
     private long startTimePartographTime;
     private ArrayList<Float> timeLabelsForDilationAndDescentGraphsXValues = new ArrayList<>();
+    private long partographOffset;
 
     public static void startPartographMonitoringActivity(Activity activity, String baseEntityId) {
         Intent intent = new Intent(activity, PartographMonitoringActivity.class);
@@ -62,6 +64,17 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         this.baseEntityId = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID);
         this.memberObject = LDDao.getMember(baseEntityId);
         startTimePartographTime = LDDao.getPartographStartTime(baseEntityId);
+        int startingCervixDilation;
+        try {
+            startingCervixDilation = LDDao.getPartographCervixDilationList(baseEntityId).get(0).getValue();
+        } catch (Exception e) {
+            Timber.e(e);
+            startingCervixDilation = 3;
+        }
+
+        //TimeUnit.HOURS.toMillis(8 + startingCervixDilation - 3) is used to offset the starting of the partograph based on the starting cervix dilation
+        //this should be refactored to make it more configurable
+        partographOffset = TimeUnit.HOURS.toMillis(8 + startingCervixDilation - 3);
         setUpViews();
     }
 
@@ -312,9 +325,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         List<PartographChartObject> cervixDilationList = LDDao.getPartographCervixDilationList(baseEntityId);
         if (cervixDilationList != null && !cervixDilationList.isEmpty()) {
             for (PartographChartObject cervixDilation : cervixDilationList) {
-                //Adding 28800000 milliseconds to offset the graph to 8 hours as per tanzania guidelines
-                //this should be refactored to make it more configurable
-                float x = (cervixDilation.getDateTime() - startTimePartographTime + 28800000) * 1f / 3600000;
+                float x = (cervixDilation.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
                 values.add(new Entry(x, cervixDilation.getValue(), getResources().getDrawable(R.drawable.ic_close)));
 
                 //Setting values for displaying time labels at the bottom of the partograph
@@ -332,9 +343,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         List<PartographChartObject> descentList = LDDao.getPartographDescentList(baseEntityId);
         if (descentList != null && !descentList.isEmpty()) {
             for (PartographChartObject cervixDilation : descentList) {
-                //Adding 28800000 milliseconds to offset the graph to 8 hours as per tanzania guidelines
-                //this should be refactored to make it more configurable
-                float x = (cervixDilation.getDateTime() - startTimePartographTime + 28800000) * 1f / 3600000;
+                float x = (cervixDilation.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
                 values.add(new Entry(x, cervixDilation.getValue(), getResources().getDrawable(R.drawable.ic_close_icon)));
 
                 //Setting values for displaying time labels at the bottom of the partograph
@@ -354,9 +363,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         List<PartographChartObject> fetalHeartRateList = LDDao.getPartographFetalHeartRateList(baseEntityId);
         if (fetalHeartRateList != null && !fetalHeartRateList.isEmpty()) {
             for (PartographChartObject fetalHeartRate : fetalHeartRateList) {
-                //Adding 28800000 milliseconds to offset the graph to 8 hours as per tanzania guidelines
-                //this should be refactored to make it more configurable
-                float x = (fetalHeartRate.getDateTime() - startTimePartographTime + 28800000) * 1f / 3600000;
+                float x = (fetalHeartRate.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
                 values.add(new Entry(x, fetalHeartRate.getValue(), getResources().getDrawable(R.drawable.ic_close_icon)));
             }
         }
@@ -371,9 +378,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         List<PartographChartObject> pulseList = LDDao.getPartographPulseList(baseEntityId);
         if (pulseList != null && !pulseList.isEmpty()) {
             for (PartographChartObject fetalHeartRate : pulseList) {
-                //Adding 28800000 milliseconds to offset the graph to 8 hours as per tanzania guidelines
-                //this should be refactored to make it more configurable
-                float x = (fetalHeartRate.getDateTime() - startTimePartographTime + 28800000) * 1f / 3600000;
+                float x = (fetalHeartRate.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
                 values.add(new Entry(x, fetalHeartRate.getValue(), getResources().getDrawable(R.drawable.ic_close_icon)));
             }
         }
@@ -388,9 +393,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         List<PartographChartBloodPressureObject> bloodPressureObjectList = LDDao.getPartographSystolicDiastolicPressure(baseEntityId);
         if (bloodPressureObjectList != null && !bloodPressureObjectList.isEmpty()) {
             for (PartographChartBloodPressureObject bloodPressure : bloodPressureObjectList) {
-                //Adding 28800000 milliseconds to offset the graph to 8 hours as per tanzania guidelines
-                //this should be refactored to make it more configurable
-                float x = (bloodPressure.getDateTime() - startTimePartographTime + 28800000) * 1f / 3600000;
+                float x = (bloodPressure.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
                 ArrayList<Entry> values = new ArrayList<>();
                 values.add(new Entry(x, bloodPressure.getSystolic(), getResources().getDrawable(R.drawable.ic_horizontal_rule)));
                 values.add(new Entry(x, bloodPressure.getDiastolic(), getResources().getDrawable(R.drawable.ic_horizontal_rule)));
@@ -418,7 +421,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
 
             @Override
             public String getFormattedValue(float v, Entry entry, int i, ViewPortHandler viewPortHandler) {
-                long timeInMilliseconds = (long) (entry.getX() * 3600000 + startTimePartographTime - 28800000);
+                long timeInMilliseconds = (long) (entry.getX() * 3600000 + startTimePartographTime - partographOffset);
 
                 return mFormat.format(new Date(timeInMilliseconds));
             }
@@ -469,7 +472,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         if (temperatureList != null && !temperatureList.isEmpty()) {
             for (PartographChartObject temperature : temperatureList) {
                 try {
-                    float x = (temperature.getDateTime() - startTimePartographTime + 28800000) * 1f / 3600000;
+                    float x = (temperature.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
                     int xValue = Math.round(x);
 
                     int resID = getResources().getIdentifier("temp_" + xValue, "id", getPackageName());
@@ -487,7 +490,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         if (urineProteinList != null && !urineProteinList.isEmpty()) {
             for (PartographDataObject temperature : urineProteinList) {
                 try {
-                    float x = (temperature.getDateTime() - startTimePartographTime + 28800000) * 1f / 3600000;
+                    float x = (temperature.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
                     int xValue = Math.round(x);
 
                     int resID = getResources().getIdentifier("protein_" + xValue, "id", getPackageName());
@@ -505,7 +508,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         if (temperatureList != null && !temperatureList.isEmpty()) {
             for (PartographDataObject temperature : temperatureList) {
                 try {
-                    float x = (temperature.getDateTime() - startTimePartographTime + 28800000) * 1f / 3600000;
+                    float x = (temperature.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
                     int xValue = Math.round(x);
 
                     int resID = getResources().getIdentifier("acetone_" + xValue, "id", getPackageName());
@@ -523,7 +526,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         if (urineVolumeList != null && !urineVolumeList.isEmpty()) {
             for (PartographDataObject urineVolume : urineVolumeList) {
                 try {
-                    float x = (urineVolume.getDateTime() - startTimePartographTime + 28800000) * 1f / 3600000;
+                    float x = (urineVolume.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
                     int xValue = Math.round(x);
 
                     int resID = getResources().getIdentifier("volume_" + xValue, "id", getPackageName());
@@ -541,7 +544,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         if (amnioticFluidList != null && !amnioticFluidList.isEmpty()) {
             for (PartographDataObject amnioticFluid : amnioticFluidList) {
                 try {
-                    float x = (amnioticFluid.getDateTime() - startTimePartographTime + 28800000) * 1f / 3600000;
+                    float x = (amnioticFluid.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
                     int xValue = Math.round(x);
 
                     int resID = getResources().getIdentifier("amniotic_fluid" + xValue, "id", getPackageName());
@@ -576,7 +579,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         if (mouldingList != null && !mouldingList.isEmpty()) {
             for (PartographDataObject moulding : mouldingList) {
                 try {
-                    float x = (moulding.getDateTime() - startTimePartographTime + 28800000) * 1f / 3600000;
+                    float x = (moulding.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
                     int xValue = Math.round(x);
 
                     int resID = getResources().getIdentifier("moulding" + xValue, "id", getPackageName());
@@ -594,7 +597,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         if (caputList != null && !caputList.isEmpty()) {
             for (PartographDataObject caput : caputList) {
                 try {
-                    float x = (caput.getDateTime() - startTimePartographTime + 28800000) * 1f / 3600000;
+                    float x = (caput.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
                     int xValue = Math.round(x);
 
                     int resID = getResources().getIdentifier("caput" + xValue, "id", getPackageName());
@@ -612,7 +615,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         if (contractionsList != null && !contractionsList.isEmpty()) {
             for (PartographContractionObject contraction : contractionsList) {
                 try {
-                    float x = (contraction.getDateTime() - startTimePartographTime + 28800000) * 1f / 3600000;
+                    float x = (contraction.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
                     int xValue = Math.round(x);
 
                     for (int i = 1; i <= contraction.getContractionsFrequency(); i++) {
