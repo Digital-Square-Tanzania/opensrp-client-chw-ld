@@ -49,18 +49,38 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
     protected MemberObject memberObject;
     protected LDProfileContract.Presenter profilePresenter;
     protected CircleImageView imageView;
-    protected TextView textViewName, textViewGender, textViewLocation, textViewUniqueID, textViewRecordLD, textViewRecordAnc, textview_positive_date;
-    protected View view_last_visit_row, view_most_due_overdue_row, view_family_row, view_positive_date_row;
-    protected RelativeLayout rlLastVisit, rlUpcomingServices, rlFamilyServicesDue, visitStatus, rlLabourProgress;
+    protected TextView textViewName;
+    protected TextView textViewGender;
+    protected TextView textViewLocation;
+    protected TextView textViewUniqueID;
+    protected TextView textViewRecordLD;
+    protected TextView textViewRecordAnc;
+    protected TextView textview_positive_date;
+    protected View view_last_visit_row;
+    protected View view_most_due_overdue_row;
+    protected View view_family_row;
+    protected View view_positive_date_row;
+    protected RelativeLayout rlLastVisit;
+    protected RelativeLayout rlUpcomingServices;
+    protected RelativeLayout rlFamilyServicesDue;
+    protected RelativeLayout visitStatus;
+    protected RelativeLayout rlLabourProgress;
     protected ImageView imageViewCross;
-    protected TextView textViewUndo, forecastSVDTime, vaginalExamDate;
-    protected RelativeLayout rlLDPositiveDate, forecastSVDTimeLayout;
-    private TextView tvUpComingServices, tvFamilyStatus;
+    protected TextView textViewUndo;
+    protected TextView forecastSVDTime;
+    protected TextView vaginalExamDate;
+    protected RelativeLayout rlLDPositiveDate;
+    protected RelativeLayout forecastSVDTimeLayout;
+    private TextView tvUpComingServices;
+    protected TextView tvFamilyStatus;
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
     protected TextView textViewVisitDone;
     protected RelativeLayout visitDone;
     protected LinearLayout recordVisits;
-    protected TextView textViewVisitDoneEdit,textViewRecordAncNotDone, textViewLabourProgressTitle, textViewLabourProgressSubTitle;
+    protected TextView textViewVisitDoneEdit;
+    protected TextView textViewRecordAncNotDone;
+    protected TextView textViewLabourProgressTitle;
+    protected TextView textViewLabourProgressSubTitle;
 
 
     private ProgressBar progressBar;
@@ -163,10 +183,14 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
     private void checkSVDForecaseTime(){
         if(LDDao.getForecastSVDTime(memberObject.getBaseEntityId()) != null){
             forecastSVDTimeLayout.setVisibility(View.VISIBLE);
-            vaginalExamDate.setText("Date : "+LDDao.getVaginalExaminationDate(memberObject.getBaseEntityId()));
-            forecastSVDTime.setText("Time : "+LDDao.getForecastSVDTime(memberObject.getBaseEntityId()));
+
+            String dateValue  = "Date : "+LDDao.getVaginalExaminationDate(memberObject.getBaseEntityId());
+            String timeValue = "Time : "+LDDao.getForecastSVDTime(memberObject.getBaseEntityId());
+            vaginalExamDate.setText(dateValue);
+            forecastSVDTime.setText(timeValue);
 
             DateFormat completeDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+
             String svdTime = LDDao.getForecastSVDTime(memberObject.getBaseEntityId());
             String vaginalExaminationDate = LDDao.getVaginalExaminationDate(memberObject.getBaseEntityId());
 
