@@ -35,6 +35,8 @@ import org.smartregister.helper.ImageRenderHelper;
 import org.smartregister.ld.R;
 import org.smartregister.view.activity.BaseProfileActivity;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -65,9 +67,12 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
     protected RelativeLayout rlLabourProgress;
     protected ImageView imageViewCross;
     protected TextView textViewUndo;
+    protected TextView forecastSVDTime;
+    protected TextView vaginalExamDate;
     protected RelativeLayout rlLDPositiveDate;
+    protected RelativeLayout forecastSVDTimeLayout;
     private TextView tvUpComingServices;
-    private TextView tvFamilyStatus;
+    protected TextView tvFamilyStatus;
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
     protected TextView textViewVisitDone;
     protected RelativeLayout visitDone;
@@ -140,6 +145,11 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
         textViewLabourProgressSubTitle = findViewById(R.id.tv_view_labour_progress);
         rlLabourProgress = findViewById(R.id.rlLabourProgress);
 
+        forecastSVDTime = findViewById(R.id.forecast_svd_time_value);
+        vaginalExamDate = findViewById(R.id.vaginal_exam_date_value);
+        forecastSVDTimeLayout = findViewById(R.id.forecast_svd_time_layout);
+        forecastSVDTimeLayout.setVisibility(View.GONE);
+
         textViewRecordAncNotDone.setOnClickListener(this);
         textViewVisitDoneEdit.setOnClickListener(this);
         rlLastVisit.setOnClickListener(this);
@@ -162,6 +172,48 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
     protected void setupViews() {
         initializeFloatingMenu();
         showLabourProgress(true);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        checkSVDForecaseTime();
+    }
+
+    private void checkSVDForecaseTime(){
+        if(LDDao.getForecastSVDTime(memberObject.getBaseEntityId()) != null){
+            forecastSVDTimeLayout.setVisibility(View.VISIBLE);
+
+            String dateValue  = "Date : "+LDDao.getVaginalExaminationDate(memberObject.getBaseEntityId());
+            String timeValue = "Time : "+LDDao.getForecastSVDTime(memberObject.getBaseEntityId());
+            vaginalExamDate.setText(dateValue);
+            forecastSVDTime.setText(timeValue);
+
+            DateFormat completeDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+
+            String svdTime = LDDao.getForecastSVDTime(memberObject.getBaseEntityId());
+            String vaginalExaminationDate = LDDao.getVaginalExaminationDate(memberObject.getBaseEntityId());
+
+            String completeSVDDate = vaginalExaminationDate + " " + svdTime;
+            try {
+                Date svdDate = completeDateFormat.parse(completeSVDDate);
+                Date currentDate = new Date();
+                if(svdDate.before(currentDate)){
+                    forecastSVDTime.setTextColor(getResources().getColor(R.color.alert_urgent_red));
+                    vaginalExamDate.setTextColor(getResources().getColor(R.color.alert_urgent_red));
+                }else {
+                    forecastSVDTime.setTextColor(getResources().getColor(R.color.text_black));
+                    vaginalExamDate.setTextColor(getResources().getColor(R.color.text_black));
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            //TODO: Check vaginal examination date, if date has changed manage the alert accordingly
+
+        }else{
+            forecastSVDTimeLayout.setVisibility(View.GONE);
+        }
     }
 
     @Override
