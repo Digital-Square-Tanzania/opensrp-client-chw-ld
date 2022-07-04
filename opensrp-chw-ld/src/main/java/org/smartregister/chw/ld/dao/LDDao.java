@@ -206,6 +206,17 @@ public class LDDao extends AbstractDao {
         return null;
     }
 
+    public static String getPresentingPart(String baseEntityId) {
+        String sql = "SELECT presenting_part FROM " + Constants.TABLES.EC_LD_GENERAL_EXAMINATION + " WHERE base_entity_id = '" + baseEntityId + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "presenting_part");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
     public static String getPartographDate(String baseEntityId) {
         String sql = "SELECT partograph_date FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 

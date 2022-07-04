@@ -125,7 +125,7 @@ publishing {
             groupId 'org.smartregister' // Library groupID
             artifactId getArtificatId()
             version getVersionName()
-            artifact("$buildDir/outputs/aar/${getArtificatId()}-debug.aar")
+            artifact("$buildDir/outputs/aar/${getArtificatId()}-release.aar")
 
             //This is to carter for transitive dependencies within this library
             pom.withXml {
