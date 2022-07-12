@@ -52,8 +52,8 @@
     <string name="female">Female</string>
     <string name="optional">optional</string>
     <string name="error_unable_save_visit">unable to save visit</string>
-    <string name="labour_progress">Labour Progress</string>
-    <string name="view_labour_progress">View Labour Progress</string>
+    <string name="labour_progress">Partograph</string>
+    <string name="view_labour_progress">View Partograph</string>
     <string name="ld_visit">ld visit</string>
     <string name="cervix_and_descent_of_head_chart_title">PARTOGRAPH: CERVIX &amp; Descent of Head (cm)</string>
     <string name="fetal_heart_rate_chart_title">PARTOGRAPH: FETAL HEART RATE</string>
