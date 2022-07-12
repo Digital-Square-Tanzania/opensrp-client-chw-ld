@@ -3,5 +3,5 @@
     android:padding="20dp"
     android:shape="rectangle">
     <corners android:radius="50dp" />
-    <solid android:color="@color/default_risk_background_black" /> <!-- the button color :: Default is black -->
+    <solid android:color="@color/high_risk_background_red" /> <!-- the button color :: Default is black -->
 </shape>
