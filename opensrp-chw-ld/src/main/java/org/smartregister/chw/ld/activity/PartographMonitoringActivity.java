@@ -29,6 +29,7 @@ import org.smartregister.chw.ld.domain.PartographChartBloodPressureObject;
 import org.smartregister.chw.ld.domain.PartographChartObject;
 import org.smartregister.chw.ld.domain.PartographContractionObject;
 import org.smartregister.chw.ld.domain.PartographDataObject;
+import org.smartregister.chw.ld.domain.PartographOxytocinObject;
 import org.smartregister.chw.ld.util.Constants;
 import org.smartregister.ld.R;
 
@@ -97,6 +98,8 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         setMoulding();
         setCaput();
         setContractions();
+        setOxytocin();
+        setDrugsAndIVFluids();
     }
 
     private void setUpCervixDescentLineChart() {
@@ -630,6 +633,46 @@ public class PartographMonitoringActivity extends AppCompatActivity {
                         if (contraction.getContractionsLengthInTime().equals("over_40_secs"))
                             imageView.setImageResource(R.color.black);
                     }
+                } catch (Exception e) {
+                    Timber.e(e);
+                }
+            }
+        }
+    }
+
+    private void setOxytocin() {
+        List<PartographOxytocinObject> oxytocinList = LDDao.getPartographOxytocinList(baseEntityId);
+        if (oxytocinList != null && !oxytocinList.isEmpty()) {
+            for (PartographOxytocinObject oxytocinObject : oxytocinList) {
+                try {
+                    float x = (oxytocinObject.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
+                    int xValue = Math.round(x);
+
+                    int resID = getResources().getIdentifier("oxytocin_" + xValue, "id", getPackageName());
+                    TextView tv = findViewById(resID);
+                    tv.setText(String.valueOf(oxytocinObject.getOxytocinUL()));
+
+                    int resDropsID = getResources().getIdentifier("drops_" + xValue, "id", getPackageName());
+                    TextView tvDropsPerMinute = findViewById(resDropsID);
+                    tvDropsPerMinute.setText(String.valueOf(oxytocinObject.getOxytocinDropsPerMinute()));
+                } catch (Exception e) {
+                    Timber.e(e);
+                }
+            }
+        }
+    }
+
+    private void setDrugsAndIVFluids() {
+        List<PartographDataObject> drugsList = LDDao.getPartographDrugsAndIVFluidsList(baseEntityId);
+        if (drugsList != null && !drugsList.isEmpty()) {
+            for (PartographDataObject drugObject : drugsList) {
+                try {
+                    float x = (drugObject.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
+                    int xValue = Math.round(x);
+
+                    int resID = getResources().getIdentifier("drugs_given_" + xValue, "id", getPackageName());
+                    TextView tv = findViewById(resID);
+                    tv.setText(String.valueOf(drugObject.getValue()));
                 } catch (Exception e) {
                     Timber.e(e);
                 }
