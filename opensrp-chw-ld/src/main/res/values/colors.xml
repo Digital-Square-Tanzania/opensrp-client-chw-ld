@@ -27,4 +27,8 @@
 
     <color name="grey">#9e9e9e</color>
 
+
+    <color name="high_risk_text_red">#D0021B</color>
+    <color name="high_risk_background_red">#20D0021B</color>
+
 </resources>

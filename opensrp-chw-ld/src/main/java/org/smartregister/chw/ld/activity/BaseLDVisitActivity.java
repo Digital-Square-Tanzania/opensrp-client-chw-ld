@@ -303,7 +303,6 @@ public class BaseLDVisitActivity extends SecuredActivity implements BaseLDVisitC
                     }
                 } catch (Exception e) {
                     Timber.e(e);
-                    Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             } else {
 

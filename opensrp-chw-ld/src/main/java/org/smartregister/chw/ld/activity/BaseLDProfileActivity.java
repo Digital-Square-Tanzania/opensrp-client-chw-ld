@@ -71,6 +71,7 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
     protected TextView vaginalExamDate;
     protected RelativeLayout rlLDPositiveDate;
     protected RelativeLayout forecastSVDTimeLayout;
+    protected TextView referredLabel;
     private TextView tvUpComingServices;
     protected TextView tvFamilyStatus;
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
@@ -149,6 +150,8 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
         vaginalExamDate = findViewById(R.id.vaginal_exam_date_value);
         forecastSVDTimeLayout = findViewById(R.id.forecast_svd_time_layout);
         forecastSVDTimeLayout.setVisibility(View.GONE);
+
+        referredLabel = findViewById(R.id.referred_label);
 
         textViewRecordAncNotDone.setOnClickListener(this);
         textViewVisitDoneEdit.setOnClickListener(this);

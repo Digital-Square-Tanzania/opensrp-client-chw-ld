@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -57,14 +58,37 @@
                     android:paddingTop="10dp"
                     app:layout_collapseMode="parallax">
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/imageview_profile"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@mipmap/ic_member"
-                        app:civ_border_color="@color/transparent"
-                        app:civ_border_width="3dp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/imageview_profile"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/ic_member"
+                            app:civ_border_color="@color/transparent"
+                            app:civ_border_width="3dp" />
+
+                        <org.smartregister.view.customcontrols.CustomFontTextView
+                            android:id="@+id/referred_label"
+                            style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/risk_label"
+                            android:paddingStart="8dp"
+                            android:paddingTop="6dp"
+                            android:paddingEnd="8dp"
+                            android:layout_toRightOf="@id/imageview_profile"
+                            android:paddingBottom="6dp"
+                            tools:text="Referred"
+                            android:visibility="gone"
+                            android:textColor="@color/high_risk_text_red"
+                            android:textSize="13sp"
+                            tools:visibility="gone" />
+                    </RelativeLayout>
 
                     <org.smartregister.view.customcontrols.CustomFontTextView
                         android:id="@+id/textview_name"
