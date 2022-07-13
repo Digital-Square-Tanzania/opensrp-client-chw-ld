@@ -662,6 +662,7 @@
                         android:layout_marginLeft="1dp"
                         android:layout_weight="1"
                         android:background="#FFF"
+                        android:gravity="center"
                         android:textSize="12sp" />
 
                     <TextView
@@ -861,6 +862,7 @@
                         android:layout_marginLeft="1dp"
                         android:layout_weight="1"
                         android:background="#FFF"
+                        android:gravity="center"
                         android:textSize="12sp" />
 
                     <TextView
@@ -869,6 +871,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="1dp"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:background="#FFF"
                         android:textSize="12sp" />
 
@@ -924,6 +927,7 @@
                         android:layout_width="0dip"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="1dp"
+                        android:gravity="center"
 
                         android:layout_weight="1"
                         android:background="#FFF"
