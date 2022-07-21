@@ -94,6 +94,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         setUrineProtein();
         setUrineAcetone();
         setUrineVolume();
+        setOralIntake();
         setAmnioticFluid();
         setMoulding();
         setCaput();
@@ -536,6 +537,24 @@ public class PartographMonitoringActivity extends AppCompatActivity {
                     int resID = getResources().getIdentifier("volume_" + xValue, "id", getPackageName());
                     TextView tv = findViewById(resID);
                     tv.setText(String.valueOf(urineVolume.getValue()));
+                } catch (Exception e) {
+                    Timber.e(e);
+                }
+            }
+        }
+    }
+
+    private void setOralIntake() {
+        List<PartographDataObject> oralIntakeList = LDDao.getPartographOralIntakeList(baseEntityId);
+        if (oralIntakeList != null && !oralIntakeList.isEmpty()) {
+            for (PartographDataObject oralIntake : oralIntakeList) {
+                try {
+                    float x = (oralIntake.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
+                    int xValue = Math.round(x);
+
+                    int resID = getResources().getIdentifier("oral_intake_" + xValue, "id", getPackageName());
+                    TextView tv = findViewById(resID);
+                    tv.setText(String.valueOf(oralIntake.getValue()));
                 } catch (Exception e) {
                     Timber.e(e);
                 }

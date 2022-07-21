@@ -551,6 +551,30 @@ public class LDDao extends AbstractDao {
         return null;
     }
 
+    public static List<PartographDataObject> getPartographOralIntakeList(String baseEntityId) {
+        String sql = "SELECT  partograph_date, partograph_time, oral_intake FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND oral_intake IS NOT NULL";
+
+        DataMap<PartographDataObject> dataMap = cursor -> {
+            String partographDate = getCursorValue(cursor, "partograph_date", "");
+            String partographTime = getCursorValue(cursor, "partograph_time", "");
+
+            String concatText = partographDate + " " + partographTime;
+
+            try {
+                Date parseDate = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).parse(concatText);
+                return new PartographDataObject(parseDate.getTime(), getCursorValue(cursor, "oral_intake"));
+            } catch (ParseException e) {
+                Timber.e(e);
+            }
+            return null;
+        };
+
+        List<PartographDataObject> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res;
+        return null;
+    }
+
     public static List<PartographChartObject> getPartographPulseList(String baseEntityId) {
         String sql = "SELECT  partograph_date, partograph_time, pulse_rate FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND pulse_rate IS NOT NULL";
 
