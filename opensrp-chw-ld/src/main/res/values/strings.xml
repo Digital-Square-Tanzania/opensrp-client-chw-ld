@@ -57,5 +57,10 @@
     <string name="ld_visit">ld visit</string>
     <string name="cervix_and_descent_of_head_chart_title">PARTOGRAPH: CERVIX &amp; Descent of Head (cm)</string>
     <string name="fetal_heart_rate_chart_title">PARTOGRAPH: FETAL HEART RATE</string>
+    <string name="download_partograph">Download Partograph</string>
+    <string name="partograph_gravida">Gravida : {0}</string>
+    <string name="partograph_para">Para : {0}</string>
+    <string name="partograph_admission_date">Admission Date : {0}</string>
+    <string name="partograph_admission_time">Admission Time : {0}</string>
 
 </resources>

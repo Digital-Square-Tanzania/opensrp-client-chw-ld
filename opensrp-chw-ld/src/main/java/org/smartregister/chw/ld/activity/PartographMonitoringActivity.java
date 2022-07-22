@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,9 +23,15 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import com.gkemon.XMLtoPDF.PdfGenerator;
+import com.gkemon.XMLtoPDF.PdfGeneratorListener;
+import com.gkemon.XMLtoPDF.model.FailureResponse;
+import com.gkemon.XMLtoPDF.model.SuccessResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.joda.time.Period;
+import org.smartregister.chw.ld.LDLibrary;
 import org.smartregister.chw.ld.dao.LDDao;
 import org.smartregister.chw.ld.domain.MemberObject;
 import org.smartregister.chw.ld.domain.PartographChartBloodPressureObject;
@@ -33,6 +42,7 @@ import org.smartregister.chw.ld.domain.PartographOxytocinObject;
 import org.smartregister.chw.ld.util.Constants;
 import org.smartregister.ld.R;
 
+import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -43,6 +53,7 @@ import java.util.concurrent.TimeUnit;
 import timber.log.Timber;
 
 public class PartographMonitoringActivity extends AppCompatActivity {
+    private static final String DEFAULT_LOCALITY_NAME = "dfltLocName";
     private MemberObject memberObject;
     private String baseEntityId;
     private LineChart cervixDescentChart;
@@ -51,6 +62,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
     private long startTimePartographTime;
     private ArrayList<Float> timeLabelsForDilationAndDescentGraphsXValues = new ArrayList<>();
     private long partographOffset;
+    private RelativeLayout headerLayout;
 
     public static void startPartographMonitoringActivity(Activity activity, String baseEntityId) {
         Intent intent = new Intent(activity, PartographMonitoringActivity.class);
@@ -87,6 +99,33 @@ public class PartographMonitoringActivity extends AppCompatActivity {
                 memberObject.getMiddleName(),
                 memberObject.getLastName(),
                 age));
+
+        headerLayout = findViewById(R.id.header_layout);
+        TextView facilityName = findViewById(R.id.facility_name);
+        TextView clientName = findViewById(R.id.client_name);
+        TextView gravida = findViewById(R.id.gravida);
+        TextView para = findViewById(R.id.para);
+        TextView admissionDate = findViewById(R.id.admission_date);
+        TextView admissionTime = findViewById(R.id.admission_time);
+
+        String facilityNameString = LDLibrary.getInstance().context().allSharedPreferences().getPreference(DEFAULT_LOCALITY_NAME);
+
+        if (StringUtils.isNotBlank(facilityNameString)) {
+            facilityName.setText(facilityNameString);
+        } else {
+            facilityName.setVisibility(View.GONE);
+        }
+
+        clientName.setText(String.format(Locale.getDefault(), "%s %s %s",
+                memberObject.getFirstName(),
+                memberObject.getMiddleName(),
+                memberObject.getLastName()));
+
+        gravida.setText(MessageFormat.format(getString(R.string.partograph_gravida), LDDao.getGravida(memberObject.getBaseEntityId())));
+        para.setText(MessageFormat.format(getString(R.string.partograph_para), LDDao.getPara(memberObject.getBaseEntityId())));
+        admissionDate.setText(MessageFormat.format(getString(R.string.partograph_admission_date), LDDao.getAdmissionDate(memberObject.getBaseEntityId())));
+        admissionTime.setText(MessageFormat.format(getString(R.string.partograph_admission_time), LDDao.getAdmissionTime(memberObject.getBaseEntityId())));
+
         setUpCervixDescentLineChart();
         setUpFetalHeartRateLineChart();
         setPulseRateLineChart();
@@ -107,9 +146,9 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         cervixDescentChart = findViewById(R.id.cervix_descent_chart);
         cervixDescentChart.setBackgroundColor(Color.WHITE);
         cervixDescentChart.getDescription().setEnabled(false);
-        cervixDescentChart.setTouchEnabled(true);
+        cervixDescentChart.setTouchEnabled(false);
         cervixDescentChart.setDrawGridBackground(false);
-        cervixDescentChart.setPinchZoom(true);
+        cervixDescentChart.setPinchZoom(false);
 
         XAxis xAxis = cervixDescentChart.getXAxis();
         xAxis.enableGridDashedLine(10f, 10f, 0f);
@@ -160,8 +199,9 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         fetalHeartRateChart = findViewById(R.id.fetal_heart_rate_chart);
         fetalHeartRateChart.setBackgroundColor(Color.WHITE);
         fetalHeartRateChart.getDescription().setEnabled(false);
-        fetalHeartRateChart.setTouchEnabled(true);
+        fetalHeartRateChart.setTouchEnabled(false);
         fetalHeartRateChart.setDrawGridBackground(false);
+        cervixDescentChart.setPinchZoom(false);
 
         XAxis xAxis = fetalHeartRateChart.getXAxis();
         xAxis.enableGridDashedLine(10f, 10f, 0f);
@@ -231,8 +271,9 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         pulseRateChart = findViewById(R.id.pulse_and_bp);
         pulseRateChart.setBackgroundColor(Color.WHITE);
         pulseRateChart.getDescription().setEnabled(false);
-        pulseRateChart.setTouchEnabled(true);
+        pulseRateChart.setTouchEnabled(false);
         pulseRateChart.setDrawGridBackground(false);
+        cervixDescentChart.setPinchZoom(false);
 
         XAxis xAxis = pulseRateChart.getXAxis();
         xAxis.enableGridDashedLine(10f, 10f, 0f);
@@ -700,11 +741,64 @@ public class PartographMonitoringActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.partograph_menu, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             finish();
             return true;
+        } else if (item.getItemId() == R.id.action_download_partograph) {
+            downloadPartograph();
+            return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void downloadPartograph() {
+        headerLayout.setVisibility(View.VISIBLE);
+        int age = new Period(new DateTime(memberObject.getAge()), new DateTime()).getYears();
+        View mView = findViewById(R.id.partograph_layout);
+        PdfGenerator.getBuilder()
+                .setContext(PartographMonitoringActivity.this)
+                .fromViewSource()
+                .fromView(mView)
+                .setFileName(String.format(Locale.getDefault(), "%s %s %s, %d",
+                        memberObject.getFirstName(),
+                        memberObject.getMiddleName(),
+                        memberObject.getLastName(),
+                        age))
+                .setFolderNameOrPath("MyFolder/MyDemoHorizontalText/")
+                .actionAfterPDFGeneration(PdfGenerator.ActionAfterPDFGeneration.OPEN)
+                .build(new PdfGeneratorListener() {
+                    @Override
+                    public void onFailure(FailureResponse failureResponse) {
+                        super.onFailure(failureResponse);
+                    }
+
+                    @Override
+                    public void showLog(String log) {
+                        super.showLog(log);
+                    }
+
+                    @Override
+                    public void onStartPDFGeneration() {
+                        /*When PDF generation begins to start*/
+                    }
+
+                    @Override
+                    public void onFinishPDFGeneration() {
+                        /*When PDF generation is finished*/
+                        headerLayout.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onSuccess(SuccessResponse response) {
+                        super.onSuccess(response);
+                    }
+                });
     }
 }
