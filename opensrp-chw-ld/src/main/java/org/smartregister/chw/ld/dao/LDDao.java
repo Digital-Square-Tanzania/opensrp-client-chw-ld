@@ -19,6 +19,52 @@ import java.util.Locale;
 import timber.log.Timber;
 
 public class LDDao extends AbstractDao {
+    public static String getAdmissionDate(String baseEntityId) {
+        String sql = "SELECT admission_date FROM " + org.smartregister.chw.ld.util.Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "admission_date");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
+    public static String getAdmissionTime(String baseEntityId) {
+        String sql = "SELECT admission_time FROM " + Constants.TABLES.LD_CONFIRMATION + " WHERE base_entity_id = '" + baseEntityId + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "admission_time");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() > 0)
+            return res.get(0);
+        return null;
+    }
+
+    public static String getGravida(String baseEntityID) {
+        String sql = "select gravida from " + Constants.TABLES.LD_CONFIRMATION + " where base_entity_id = '" + baseEntityID + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "gravida");
+
+        List<String> res = readData(sql, dataMap);
+        if (res == null || res.size() != 1)
+            return null;
+
+        return res.get(0);
+    }
+
+
+    public static String getPara(String baseEntityID) {
+        String sql = "select para from " + Constants.TABLES.LD_CONFIRMATION + " where base_entity_id = '" + baseEntityID + "'";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "para");
+
+        List<String> res = readData(sql, dataMap);
+        if (res == null || res.size() != 1)
+            return null;
+
+        return res.get(0);
+    }
 
     public static Date getLDTestDate(String baseEntityID) {
         String sql = "select ld_test_date from " + Constants.TABLES.LD_CONFIRMATION + " where base_entity_id = '" + baseEntityID + "'";
@@ -466,7 +512,7 @@ public class LDDao extends AbstractDao {
 
             try {
                 Date parseDate = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).parse(concatText);
-                return new PartographDataObject(parseDate.getTime(), getCursorValue(cursor, "drugs_provided", "") +" "+ getCursorValue(cursor, "iv_fluid_provided", ""));
+                return new PartographDataObject(parseDate.getTime(), getCursorValue(cursor, "drugs_provided", "") + " " + getCursorValue(cursor, "iv_fluid_provided", ""));
             } catch (ParseException e) {
                 Timber.e(e);
             }
