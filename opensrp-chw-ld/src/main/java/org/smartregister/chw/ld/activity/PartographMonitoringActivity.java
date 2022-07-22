@@ -63,12 +63,6 @@ public class PartographMonitoringActivity extends AppCompatActivity {
     private ArrayList<Float> timeLabelsForDilationAndDescentGraphsXValues = new ArrayList<>();
     private long partographOffset;
     private RelativeLayout headerLayout;
-    private TextView facilityName;
-    private TextView clientName;
-    private TextView gravida;
-    private TextView para;
-    private TextView admissionDate;
-    private TextView admissionTime;
 
     public static void startPartographMonitoringActivity(Activity activity, String baseEntityId) {
         Intent intent = new Intent(activity, PartographMonitoringActivity.class);
@@ -107,19 +101,19 @@ public class PartographMonitoringActivity extends AppCompatActivity {
                 age));
 
         headerLayout = findViewById(R.id.header_layout);
-        facilityName = findViewById(R.id.facility_name);
-        clientName = findViewById(R.id.client_name);
-        gravida = findViewById(R.id.gravida);
-        para = findViewById(R.id.para);
-        admissionDate = findViewById(R.id.admission_date);
-        admissionTime = findViewById(R.id.admission_time);
+        TextView facilityName = findViewById(R.id.facility_name);
+        TextView clientName = findViewById(R.id.client_name);
+        TextView gravida = findViewById(R.id.gravida);
+        TextView para = findViewById(R.id.para);
+        TextView admissionDate = findViewById(R.id.admission_date);
+        TextView admissionTime = findViewById(R.id.admission_time);
 
         String facilityNameString = LDLibrary.getInstance().context().allSharedPreferences().getPreference(DEFAULT_LOCALITY_NAME);
 
         if (StringUtils.isNotBlank(facilityNameString)) {
-            this.facilityName.setText(facilityNameString);
+            facilityName.setText(facilityNameString);
         } else {
-            this.facilityName.setVisibility(View.GONE);
+            facilityName.setVisibility(View.GONE);
         }
 
         clientName.setText(String.format(Locale.getDefault(), "%s %s %s",
