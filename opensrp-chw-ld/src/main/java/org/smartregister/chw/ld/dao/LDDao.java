@@ -290,7 +290,9 @@ public class LDDao extends AbstractDao {
     }
 
     public static String getPartographDate(String baseEntityId) {
-        String sql = "SELECT partograph_date FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+        String sql = "SELECT partograph_date FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00') DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "partograph_date");
 
@@ -301,7 +303,9 @@ public class LDDao extends AbstractDao {
     }
 
     public static String getPartographTime(String baseEntityId) {
-        String sql = "SELECT partograph_time FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+        String sql = "SELECT partograph_time FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00') DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "partograph_time");
 
@@ -382,7 +386,9 @@ public class LDDao extends AbstractDao {
     }
 
     public static Long getPartographStartTime(String baseEntityId) {
-        String sql = "SELECT partograph_date, partograph_time FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with LIMIT 1";
+        String sql = "SELECT partograph_date, partograph_time FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00')  LIMIT 1";
 
         DataMap<Long> dataMap = cursor -> {
             String partographDate = getCursorValue(cursor, "partograph_date", "");
@@ -406,7 +412,9 @@ public class LDDao extends AbstractDao {
     }
 
     public static List<PartographChartObject> getPartographCervixDilationList(String baseEntityId) {
-        String sql = "SELECT partograph_date, partograph_time, cervix_dilation FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND cervix_dilation IS NOT NULL";
+        String sql = "SELECT partograph_date, partograph_time, cervix_dilation FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND cervix_dilation IS NOT NULL " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00')";
 
         DataMap<PartographChartObject> dataMap = cursor -> {
             String partographDate = getCursorValue(cursor, "partograph_date", "");
@@ -430,7 +438,9 @@ public class LDDao extends AbstractDao {
     }
 
     public static List<PartographChartObject> getPartographFetalHeartRateList(String baseEntityId) {
-        String sql = "SELECT  partograph_date, partograph_time,fetal_heart_rate FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND fetal_heart_rate IS NOT NULL";
+        String sql = "SELECT  partograph_date, partograph_time,fetal_heart_rate FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND fetal_heart_rate IS NOT NULL " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00')";
 
         DataMap<PartographChartObject> dataMap = cursor -> {
             String partographDate = getCursorValue(cursor, "partograph_date", "");
@@ -454,7 +464,9 @@ public class LDDao extends AbstractDao {
     }
 
     public static List<PartographChartObject> getPartographTemperatureList(String baseEntityId) {
-        String sql = "SELECT  partograph_date, partograph_time,temperature FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND temperature IS NOT NULL";
+        String sql = "SELECT  partograph_date, partograph_time,temperature FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND temperature IS NOT NULL " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00')";
 
         DataMap<PartographChartObject> dataMap = cursor -> {
             String partographDate = getCursorValue(cursor, "partograph_date", "");
@@ -478,7 +490,9 @@ public class LDDao extends AbstractDao {
     }
 
     public static List<PartographOxytocinObject> getPartographOxytocinList(String baseEntityId) {
-        String sql = "SELECT  partograph_date, partograph_time, oxytocin_units_per_liter, oxytocin_drops_per_minute FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND oxytocin_drops_per_minute IS NOT NULL AND oxytocin_units_per_liter IS NOT NULL";
+        String sql = "SELECT  partograph_date, partograph_time, oxytocin_units_per_liter, oxytocin_drops_per_minute FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND oxytocin_drops_per_minute IS NOT NULL AND oxytocin_units_per_liter IS NOT NULL " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00')";
 
         DataMap<PartographOxytocinObject> dataMap = cursor -> {
             String partographDate = getCursorValue(cursor, "partograph_date", "");
@@ -502,7 +516,9 @@ public class LDDao extends AbstractDao {
     }
 
     public static List<PartographDataObject> getPartographDrugsAndIVFluidsList(String baseEntityId) {
-        String sql = "SELECT  partograph_date, partograph_time, drugs_provided, iv_fluid_provided FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND drugs_provided IS NOT NULL OR iv_fluid_provided IS NOT NULL";
+        String sql = "SELECT  partograph_date, partograph_time, drugs_provided, iv_fluid_provided FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND drugs_provided IS NOT NULL OR iv_fluid_provided IS NOT NULL " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00')";
 
         DataMap<PartographDataObject> dataMap = cursor -> {
             String partographDate = getCursorValue(cursor, "partograph_date", "");
@@ -526,7 +542,9 @@ public class LDDao extends AbstractDao {
     }
 
     public static List<PartographDataObject> getPartographUrineProteinList(String baseEntityId) {
-        String sql = "SELECT  partograph_date, partograph_time, urine_protein FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND urine_protein IS NOT NULL";
+        String sql = "SELECT  partograph_date, partograph_time, urine_protein FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND urine_protein IS NOT NULL " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00')";
 
         DataMap<PartographDataObject> dataMap = cursor -> {
             String partographDate = getCursorValue(cursor, "partograph_date", "");
@@ -550,7 +568,9 @@ public class LDDao extends AbstractDao {
     }
 
     public static List<PartographDataObject> getPartographUrineAcetoneList(String baseEntityId) {
-        String sql = "SELECT  partograph_date, partograph_time, urine_acetone FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND urine_acetone IS NOT NULL";
+        String sql = "SELECT  partograph_date, partograph_time, urine_acetone FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND urine_acetone IS NOT NULL " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00')";
 
         DataMap<PartographDataObject> dataMap = cursor -> {
             String partographDate = getCursorValue(cursor, "partograph_date", "");
@@ -574,7 +594,9 @@ public class LDDao extends AbstractDao {
     }
 
     public static List<PartographDataObject> getPartographUrineVolumeList(String baseEntityId) {
-        String sql = "SELECT  partograph_date, partograph_time, urine_volume FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND urine_volume IS NOT NULL";
+        String sql = "SELECT  partograph_date, partograph_time, urine_volume FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND urine_volume IS NOT NULL " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00')";
 
         DataMap<PartographDataObject> dataMap = cursor -> {
             String partographDate = getCursorValue(cursor, "partograph_date", "");
@@ -598,7 +620,9 @@ public class LDDao extends AbstractDao {
     }
 
     public static List<PartographDataObject> getPartographOralIntakeList(String baseEntityId) {
-        String sql = "SELECT  partograph_date, partograph_time, oral_intake FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND oral_intake IS NOT NULL";
+        String sql = "SELECT  partograph_date, partograph_time, oral_intake FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND oral_intake IS NOT NULL " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00')";
 
         DataMap<PartographDataObject> dataMap = cursor -> {
             String partographDate = getCursorValue(cursor, "partograph_date", "");
@@ -622,7 +646,9 @@ public class LDDao extends AbstractDao {
     }
 
     public static List<PartographChartObject> getPartographPulseList(String baseEntityId) {
-        String sql = "SELECT  partograph_date, partograph_time, pulse_rate FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND pulse_rate IS NOT NULL";
+        String sql = "SELECT  partograph_date, partograph_time, pulse_rate FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND pulse_rate IS NOT NULL " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00')";
 
         DataMap<PartographChartObject> dataMap = cursor -> {
             String partographDate = getCursorValue(cursor, "partograph_date", "");
@@ -646,7 +672,9 @@ public class LDDao extends AbstractDao {
     }
 
     public static List<PartographChartBloodPressureObject> getPartographSystolicDiastolicPressure(String baseEntityId) {
-        String sql = "SELECT  partograph_date, partograph_time, systolic, diastolic FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND systolic IS NOT NULL AND diastolic IS NOT NULL";
+        String sql = "SELECT  partograph_date, partograph_time, systolic, diastolic FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND systolic IS NOT NULL AND diastolic IS NOT NULL " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00')";
 
         DataMap<PartographChartBloodPressureObject> dataMap = cursor -> {
             String partographDate = getCursorValue(cursor, "partograph_date", "");
@@ -671,7 +699,9 @@ public class LDDao extends AbstractDao {
 
 
     public static List<PartographDataObject> getPartographAmnioticFluidList(String baseEntityId) {
-        String sql = "SELECT  partograph_date, partograph_time, amniotic_fluid FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND amniotic_fluid IS NOT NULL";
+        String sql = "SELECT  partograph_date, partograph_time, amniotic_fluid FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND amniotic_fluid IS NOT NULL " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00')";
 
         DataMap<PartographDataObject> dataMap = cursor -> {
             String partographDate = getCursorValue(cursor, "partograph_date", "");
@@ -695,7 +725,9 @@ public class LDDao extends AbstractDao {
     }
 
     public static List<PartographDataObject> getPartographMouldingList(String baseEntityId) {
-        String sql = "SELECT  partograph_date, partograph_time, moulding_options FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND moulding_options IS NOT NULL";
+        String sql = "SELECT  partograph_date, partograph_time, moulding_options FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND moulding_options IS NOT NULL " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00')";
 
         DataMap<PartographDataObject> dataMap = cursor -> {
             String partographDate = getCursorValue(cursor, "partograph_date", "");
@@ -719,7 +751,9 @@ public class LDDao extends AbstractDao {
     }
 
     public static List<PartographDataObject> getPartographCaputList(String baseEntityId) {
-        String sql = "SELECT  partograph_date, partograph_time, caput FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND caput IS NOT NULL";
+        String sql = "SELECT  partograph_date, partograph_time, caput FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND caput IS NOT NULL " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00')";
 
         DataMap<PartographDataObject> dataMap = cursor -> {
             String partographDate = getCursorValue(cursor, "partograph_date", "");
@@ -743,7 +777,9 @@ public class LDDao extends AbstractDao {
     }
 
     public static List<PartographContractionObject> getPartographContractionsList(String baseEntityId) {
-        String sql = "SELECT  partograph_date, partograph_time, contraction_every_half_hour_frequency, contraction_every_half_hour_time FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND contraction_every_half_hour_frequency IS NOT NULL AND contraction_every_half_hour_time IS NOT NULL";
+        String sql = "SELECT  partograph_date, partograph_time, contraction_every_half_hour_frequency, contraction_every_half_hour_time FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND contraction_every_half_hour_frequency IS NOT NULL AND contraction_every_half_hour_time IS NOT NULL " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00') ";
 
         DataMap<PartographContractionObject> dataMap = cursor -> {
             String partographDate = getCursorValue(cursor, "partograph_date", "");
@@ -767,7 +803,9 @@ public class LDDao extends AbstractDao {
     }
 
     public static List<PartographChartObject> getPartographDescentList(String baseEntityId) {
-        String sql = "SELECT partograph_date, partograph_time, descent_presenting_part FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND descent_presenting_part IS NOT NULL";
+        String sql = "SELECT partograph_date, partograph_time, descent_presenting_part FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND descent_presenting_part IS NOT NULL " +
+                "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
+                "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00') ";
 
         DataMap<PartographChartObject> dataMap = cursor -> {
             String partographDate = getCursorValue(cursor, "partograph_date", "");

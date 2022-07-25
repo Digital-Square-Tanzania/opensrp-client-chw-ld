@@ -116,11 +116,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
             facilityName.setVisibility(View.GONE);
         }
 
-        clientName.setText(String.format(Locale.getDefault(), "%s %s %s",
-                memberObject.getFirstName(),
-                memberObject.getMiddleName(),
-                memberObject.getLastName()));
-
+        clientName.setText(MessageFormat.format(getString(R.string.partograph_client_name), memberObject.getFirstName(), memberObject.getMiddleName(), memberObject.getLastName()));
         gravida.setText(MessageFormat.format(getString(R.string.partograph_gravida), LDDao.getGravida(memberObject.getBaseEntityId())));
         para.setText(MessageFormat.format(getString(R.string.partograph_para), LDDao.getPara(memberObject.getBaseEntityId())));
         admissionDate.setText(MessageFormat.format(getString(R.string.partograph_admission_date), LDDao.getAdmissionDate(memberObject.getBaseEntityId())));
