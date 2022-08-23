@@ -247,6 +247,22 @@ public class VisitRepository extends BaseRepository {
         return visits;
     }
 
+    public List<Visit> getVisitsByParentVisitId(String parentVisitId, String visitType) {
+        List<Visit> visits = new ArrayList<>();
+        Cursor cursor = null;
+        try {
+            cursor = getReadableDatabase().query(VISIT_TABLE, VISIT_COLUMNS, PARENT_VISIT_ID + " = ? AND " + VISIT_TYPE + " = ? ", new String[]{parentVisitId, visitType}, null, null, CREATED_AT + " DESC ", null);
+            visits = readVisits(cursor);
+        } catch (Exception e) {
+            Timber.e(e);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return visits;
+    }
+
     public List<Visit> getVisitsByGroup(String visitGroup) {
         List<Visit> visits = new ArrayList<>();
         Cursor cursor = null;
