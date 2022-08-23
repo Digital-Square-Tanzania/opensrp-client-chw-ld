@@ -2405,7 +2405,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_2"
@@ -2416,7 +2416,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_3"
@@ -2427,7 +2427,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_4"
@@ -2438,7 +2438,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_5"
@@ -2449,7 +2449,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_6"
@@ -2460,7 +2460,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_7"
@@ -2471,7 +2471,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_8"
@@ -2482,7 +2482,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_9"
@@ -2493,7 +2493,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_10"
@@ -2504,7 +2504,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_11"
@@ -2515,7 +2515,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_12"
@@ -2526,7 +2526,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_13"
@@ -2537,7 +2537,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_14"
@@ -2548,7 +2548,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_15"
@@ -2559,7 +2559,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_16"
@@ -2570,7 +2570,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_17"
@@ -2581,7 +2581,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_18"
@@ -2592,7 +2592,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_19"
@@ -2603,7 +2603,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_20"
@@ -2614,7 +2614,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_21"
@@ -2625,7 +2625,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_22"
@@ -2636,7 +2636,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_23"
@@ -2647,7 +2647,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oxytocin_24"
@@ -2658,7 +2658,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                 </TableRow>
 
@@ -2679,7 +2679,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_2"
@@ -2690,7 +2690,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_3"
@@ -2701,7 +2701,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_4"
@@ -2712,7 +2712,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_5"
@@ -2723,7 +2723,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_6"
@@ -2734,7 +2734,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_7"
@@ -2745,7 +2745,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_8"
@@ -2756,7 +2756,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_9"
@@ -2767,7 +2767,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_10"
@@ -2778,7 +2778,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_11"
@@ -2789,7 +2789,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_12"
@@ -2800,7 +2800,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_13"
@@ -2811,7 +2811,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_14"
@@ -2822,7 +2822,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_15"
@@ -2833,7 +2833,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_16"
@@ -2844,7 +2844,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_17"
@@ -2855,7 +2855,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_18"
@@ -2866,7 +2866,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_19"
@@ -2877,7 +2877,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_20"
@@ -2888,7 +2888,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_21"
@@ -2899,7 +2899,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_22"
@@ -2910,7 +2910,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_23"
@@ -2921,7 +2921,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drops_24"
@@ -2932,7 +2932,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                 </TableRow>
             </TableLayout>
@@ -2982,7 +2982,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_2"
@@ -2993,7 +2993,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_3"
@@ -3004,7 +3004,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_4"
@@ -3015,7 +3015,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_5"
@@ -3026,7 +3026,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_6"
@@ -3037,7 +3037,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_7"
@@ -3048,7 +3048,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_8"
@@ -3059,7 +3059,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_9"
@@ -3070,7 +3070,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_10"
@@ -3081,7 +3081,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_11"
@@ -3092,7 +3092,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_12"
@@ -3103,7 +3103,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_13"
@@ -3114,7 +3114,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_14"
@@ -3125,7 +3125,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_15"
@@ -3136,7 +3136,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_16"
@@ -3147,7 +3147,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_17"
@@ -3158,7 +3158,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_18"
@@ -3169,7 +3169,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_19"
@@ -3180,7 +3180,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_20"
@@ -3191,7 +3191,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_21"
@@ -3202,7 +3202,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_22"
@@ -3213,7 +3213,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_23"
@@ -3224,7 +3224,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/drugs_given_24"
@@ -3235,7 +3235,7 @@
                         android:background="#FFF"
                         android:gravity="top"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="9sp" />
 
                 </TableRow>
             </TableLayout>
@@ -3306,7 +3306,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_2"
@@ -3317,7 +3317,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_3"
@@ -3328,7 +3328,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_4"
@@ -3339,7 +3339,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_5"
@@ -3350,7 +3350,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_6"
@@ -3361,7 +3361,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_7"
@@ -3372,7 +3372,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_8"
@@ -3383,7 +3383,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_9"
@@ -3394,7 +3394,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_10"
@@ -3405,7 +3405,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_11"
@@ -3416,7 +3416,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_12"
@@ -3427,7 +3427,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_13"
@@ -3438,7 +3438,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_14"
@@ -3449,7 +3449,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_15"
@@ -3460,7 +3460,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_16"
@@ -3471,7 +3471,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_17"
@@ -3482,7 +3482,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_18"
@@ -3493,7 +3493,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_19"
@@ -3504,7 +3504,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_20"
@@ -3515,7 +3515,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_21"
@@ -3526,7 +3526,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_22"
@@ -3537,7 +3537,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_23"
@@ -3548,7 +3548,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/temp_24"
@@ -3559,7 +3559,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                 </TableRow>
             </TableLayout>
@@ -3644,7 +3644,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_2"
@@ -3655,7 +3655,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_3"
@@ -3666,7 +3666,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_4"
@@ -3677,7 +3677,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_5"
@@ -3688,7 +3688,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_6"
@@ -3699,7 +3699,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_7"
@@ -3710,7 +3710,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_8"
@@ -3721,7 +3721,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_9"
@@ -3732,7 +3732,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_10"
@@ -3743,7 +3743,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_11"
@@ -3754,7 +3754,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_12"
@@ -3765,7 +3765,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_13"
@@ -3776,7 +3776,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_14"
@@ -3787,7 +3787,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_15"
@@ -3798,7 +3798,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_16"
@@ -3809,7 +3809,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_17"
@@ -3820,7 +3820,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_18"
@@ -3831,7 +3831,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_19"
@@ -3842,7 +3842,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_20"
@@ -3853,7 +3853,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_21"
@@ -3864,7 +3864,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_22"
@@ -3875,7 +3875,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_23"
@@ -3886,7 +3886,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/protein_24"
@@ -3897,7 +3897,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                 </TableRow>
 
@@ -3918,7 +3918,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_2"
@@ -3929,7 +3929,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_3"
@@ -3940,7 +3940,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_4"
@@ -3951,7 +3951,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_5"
@@ -3962,7 +3962,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_6"
@@ -3973,7 +3973,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_7"
@@ -3984,7 +3984,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_8"
@@ -3995,7 +3995,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_9"
@@ -4006,7 +4006,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_10"
@@ -4017,7 +4017,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_11"
@@ -4028,7 +4028,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_12"
@@ -4039,7 +4039,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_13"
@@ -4050,7 +4050,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_14"
@@ -4061,7 +4061,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_15"
@@ -4072,7 +4072,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_16"
@@ -4083,7 +4083,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_17"
@@ -4094,7 +4094,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_18"
@@ -4105,7 +4105,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_19"
@@ -4116,7 +4116,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_20"
@@ -4127,7 +4127,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_21"
@@ -4138,7 +4138,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_22"
@@ -4149,7 +4149,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_23"
@@ -4160,7 +4160,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/acetone_24"
@@ -4171,7 +4171,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                 </TableRow>
 
@@ -4192,7 +4192,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_2"
@@ -4203,7 +4203,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_3"
@@ -4214,7 +4214,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_4"
@@ -4225,7 +4225,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_5"
@@ -4236,7 +4236,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_6"
@@ -4247,7 +4247,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_7"
@@ -4258,7 +4258,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_8"
@@ -4269,7 +4269,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_9"
@@ -4280,7 +4280,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_10"
@@ -4291,7 +4291,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_11"
@@ -4302,7 +4302,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_12"
@@ -4313,7 +4313,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_13"
@@ -4324,7 +4324,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_14"
@@ -4335,7 +4335,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_15"
@@ -4346,7 +4346,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_16"
@@ -4357,7 +4357,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_17"
@@ -4368,7 +4368,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_18"
@@ -4379,7 +4379,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_19"
@@ -4390,7 +4390,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_20"
@@ -4401,7 +4401,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_21"
@@ -4412,7 +4412,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_22"
@@ -4423,7 +4423,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_23"
@@ -4434,7 +4434,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/volume_24"
@@ -4445,7 +4445,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                 </TableRow>
 
@@ -4466,7 +4466,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_2"
@@ -4477,7 +4477,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_3"
@@ -4488,7 +4488,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_4"
@@ -4499,7 +4499,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_5"
@@ -4510,7 +4510,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_6"
@@ -4521,7 +4521,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_7"
@@ -4532,7 +4532,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_8"
@@ -4543,7 +4543,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_9"
@@ -4554,7 +4554,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_10"
@@ -4565,7 +4565,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_11"
@@ -4576,7 +4576,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_12"
@@ -4587,7 +4587,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_13"
@@ -4598,7 +4598,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_14"
@@ -4609,7 +4609,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_15"
@@ -4620,7 +4620,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_16"
@@ -4631,7 +4631,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_17"
@@ -4642,7 +4642,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_18"
@@ -4653,7 +4653,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_19"
@@ -4664,7 +4664,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_20"
@@ -4675,7 +4675,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_21"
@@ -4686,7 +4686,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_22"
@@ -4697,7 +4697,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_23"
@@ -4708,7 +4708,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                     <TextView
                         android:id="@+id/oral_intake_24"
@@ -4719,7 +4719,7 @@
                         android:background="#FFF"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="9sp" />
 
                 </TableRow>
             </TableLayout>
@@ -4749,7 +4749,7 @@
                 android:layout_toRightOf="@id/logo"
                 android:layout_centerVertical="true"
                 android:text="Generated by UCS Kituoni App"
-                android:textSize="12sp" />
+                android:textSize="9sp" />
 
         </RelativeLayout>
     </LinearLayout>
