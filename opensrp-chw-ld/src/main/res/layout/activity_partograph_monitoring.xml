@@ -3579,7 +3579,7 @@
                 android:paddingEnd="2dp"
                 android:text="Urine Protein"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="9sp" />
 
             <TextView
                 android:id="@+id/acetone_label"
@@ -3591,7 +3591,7 @@
                 android:paddingEnd="2dp"
                 android:text="Urine Acetone"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="9sp" />
 
             <TextView
                 android:id="@+id/volume_label"
@@ -3603,7 +3603,7 @@
                 android:paddingEnd="2dp"
                 android:text="Urine Volume"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="9sp" />
 
             <TextView
                 android:id="@+id/oral_intake_label"
@@ -3615,7 +3615,7 @@
                 android:paddingEnd="2dp"
                 android:text="Oral Intake"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="9sp" />
 
             <TableLayout
                 android:id="@+id/urine_table"
