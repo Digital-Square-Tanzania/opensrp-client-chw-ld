@@ -675,7 +675,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
         if (contractionsList != null && !contractionsList.isEmpty()) {
             for (PartographContractionObject contraction : contractionsList) {
                 try {
-                    float x = (contraction.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
+                    float x = (contraction.getDateTime() - startTimePartographTime + partographOffset) * 1f / 1800000;
                     int xValue = Math.round(x);
 
                     for (int i = 1; i <= contraction.getContractionsFrequency(); i++) {

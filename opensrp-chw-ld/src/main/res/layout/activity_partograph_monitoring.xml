@@ -1443,6 +1443,223 @@
                         android:background="#FFF"
                         android:scaleType="centerCrop" />
 
+
+                    <ImageView
+                        android:id="@+id/contractions_5_25"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_26"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_27"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_28"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_29"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_30"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_31"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_32"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_33"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_34"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_35"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_36"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_37"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_38"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_39"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_40"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_41"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_42"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_43"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_44"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_45"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_46"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_47"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_5_48"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
                 </TableRow>
 
                 <TableRow
@@ -1662,6 +1879,223 @@
 
                     <ImageView
                         android:id="@+id/contractions_4_24"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+
+                    <ImageView
+                        android:id="@+id/contractions_4_25"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_26"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_27"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_28"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_29"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_30"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_31"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_32"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_33"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_34"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_35"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_36"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_37"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_38"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_39"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_40"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_41"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_42"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_43"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_44"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_45"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_46"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_47"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_4_48"
                         android:layout_width="0dip"
                         android:layout_height="18dp"
                         android:layout_marginLeft="1dp"
@@ -1895,6 +2329,223 @@
                         android:background="#FFF"
                         android:scaleType="centerCrop" />
 
+
+                    <ImageView
+                        android:id="@+id/contractions_3_25"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_26"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_27"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_28"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_29"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_30"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_31"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_32"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_33"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_34"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_35"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_36"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_37"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_38"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_39"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_40"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_41"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_42"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_43"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_44"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_45"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_46"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_47"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_3_48"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
                 </TableRow>
 
                 <TableRow
@@ -2121,6 +2772,223 @@
                         android:background="#FFF"
                         android:scaleType="centerCrop" />
 
+
+                    <ImageView
+                        android:id="@+id/contractions_2_25"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_26"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_27"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_28"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_29"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_30"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_31"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_32"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_33"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_34"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_35"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_36"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_37"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_38"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_39"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_40"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_41"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_42"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_43"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_44"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_45"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_46"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_47"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_2_48"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
                 </TableRow>
 
                 <TableRow
@@ -2340,6 +3208,222 @@
 
                     <ImageView
                         android:id="@+id/contractions_1_24"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_25"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_26"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_27"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_28"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_29"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_30"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_31"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_32"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_33"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_34"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_35"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_36"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_37"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_38"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_39"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_40"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_41"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_42"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_43"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_44"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_45"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_46"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_47"
+                        android:layout_width="0dip"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFF"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/contractions_1_48"
                         android:layout_width="0dip"
                         android:layout_height="18dp"
                         android:layout_marginLeft="1dp"
