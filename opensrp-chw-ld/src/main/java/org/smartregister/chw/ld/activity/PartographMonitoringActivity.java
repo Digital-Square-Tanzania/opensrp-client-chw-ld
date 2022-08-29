@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LimitLine;
@@ -682,10 +683,12 @@ public class PartographMonitoringActivity extends AppCompatActivity {
                         String resIdString = "contractions_" + i + "_" + xValue;
                         int resID = getResources().getIdentifier(resIdString, "id", getPackageName());
                         ImageView imageView = findViewById(resID);
-                        if (contraction.getContractionsLengthInTime().equals("less_than_20_secs"))
-                            imageView.setImageResource(R.drawable.dots);
-                        if (contraction.getContractionsLengthInTime().equals("over_20_less_40_secs"))
-                            imageView.setImageResource(R.drawable.diagonal_lines);
+                        if (contraction.getContractionsLengthInTime().equals("less_than_20_secs")) {
+                            Glide.with(this).load(R.drawable.dots).into(imageView);
+                        }
+                        if (contraction.getContractionsLengthInTime().equals("over_20_less_40_secs")) {
+                            Glide.with(this).load(R.drawable.diagonal_lines).into(imageView);
+                        }
                         if (contraction.getContractionsLengthInTime().equals("over_40_secs"))
                             imageView.setImageResource(R.color.black);
                     }
