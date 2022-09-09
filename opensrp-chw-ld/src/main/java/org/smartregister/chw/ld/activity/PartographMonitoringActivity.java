@@ -94,7 +94,12 @@ public class PartographMonitoringActivity extends AppCompatActivity {
     }
 
     public void setUpViews() {
-        int age = new Period(new DateTime(memberObject.getAge()), new DateTime()).getYears();
+        int age = 0;
+        try {
+            age = Integer.parseInt(memberObject.getAge());
+        } catch (Exception e) {
+            Timber.e(e);
+        }
         getSupportActionBar().setTitle(String.format(Locale.getDefault(), "%s %s %s, %d",
                 memberObject.getFirstName(),
                 memberObject.getMiddleName(),

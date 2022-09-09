@@ -20,8 +20,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import org.apache.commons.lang3.StringUtils;
-import org.joda.time.DateTime;
-import org.joda.time.Period;
 import org.smartregister.chw.ld.contract.LDProfileContract;
 import org.smartregister.chw.ld.custom_views.BaseLDFloatingMenu;
 import org.smartregister.chw.ld.dao.LDDao;
@@ -183,12 +181,12 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
         checkSVDForecaseTime();
     }
 
-    private void checkSVDForecaseTime(){
-        if(LDDao.getForecastSVDTime(memberObject.getBaseEntityId()) != null){
+    private void checkSVDForecaseTime() {
+        if (LDDao.getForecastSVDTime(memberObject.getBaseEntityId()) != null) {
             forecastSVDTimeLayout.setVisibility(View.VISIBLE);
 
-            String dateValue  = "Date : "+LDDao.getVaginalExaminationDate(memberObject.getBaseEntityId());
-            String timeValue = "Time : "+LDDao.getForecastSVDTime(memberObject.getBaseEntityId());
+            String dateValue = "Date : " + LDDao.getVaginalExaminationDate(memberObject.getBaseEntityId());
+            String timeValue = "Time : " + LDDao.getForecastSVDTime(memberObject.getBaseEntityId());
             vaginalExamDate.setText(dateValue);
             forecastSVDTime.setText(timeValue);
 
@@ -201,10 +199,10 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
             try {
                 Date svdDate = completeDateFormat.parse(completeSVDDate);
                 Date currentDate = new Date();
-                if(svdDate.before(currentDate)){
+                if (svdDate.before(currentDate)) {
                     forecastSVDTime.setTextColor(getResources().getColor(R.color.alert_urgent_red));
                     vaginalExamDate.setTextColor(getResources().getColor(R.color.alert_urgent_red));
-                }else {
+                } else {
                     forecastSVDTime.setTextColor(getResources().getColor(R.color.text_black));
                     vaginalExamDate.setTextColor(getResources().getColor(R.color.text_black));
                 }
@@ -214,7 +212,7 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
 
             //TODO: Check vaginal examination date, if date has changed manage the alert accordingly
 
-        }else{
+        } else {
             forecastSVDTimeLayout.setVisibility(View.GONE);
         }
     }
@@ -262,7 +260,12 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
     @SuppressLint("DefaultLocale")
     @Override
     public void setProfileViewWithData() {
-        int age = new Period(new DateTime(memberObject.getAge()), new DateTime()).getYears();
+        int age = 0;
+        try {
+            age = Integer.parseInt(memberObject.getAge());
+        } catch (Exception e) {
+            Timber.e(e);
+        }
         textViewName.setText(String.format("%s %s %s, %d", memberObject.getFirstName(),
                 memberObject.getMiddleName(), memberObject.getLastName(), age));
         textViewGender.setText(LDUtil.getGenderTranslated(this, memberObject.getGender()));
