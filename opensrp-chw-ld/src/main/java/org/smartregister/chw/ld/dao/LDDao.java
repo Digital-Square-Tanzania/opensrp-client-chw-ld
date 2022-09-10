@@ -516,7 +516,7 @@ public class LDDao extends AbstractDao {
     }
 
     public static List<PartographDataObject> getPartographDrugsAndIVFluidsList(String baseEntityId) {
-        String sql = "SELECT  partograph_date, partograph_time, drugs_provided, iv_fluid_provided FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND drugs_provided IS NOT NULL OR iv_fluid_provided IS NOT NULL " +
+        String sql = "SELECT  partograph_date, partograph_time, drugs_provided, iv_fluid_provided FROM " + Constants.TABLES.EC_LD_PARTOGRAPH + " WHERE entity_id = '" + baseEntityId + "' AND (drugs_provided IS NOT NULL OR iv_fluid_provided) IS NOT NULL " +
                 "order by DATETIME(substr(partograph_date, 7, 4) || '-' || substr(partograph_date, 4, 2) || '-' ||\n" +
                 "                  substr(partograph_date, 1, 2) || ' ' || partograph_time || ':' || '00')";
 
