@@ -544,7 +544,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
                     int resID = getResources().getIdentifier("protein_" + xValue, "id", getPackageName());
                     TextView tv = findViewById(resID);
                     String urineProteinValue = urineProtein.getValue();
-                    if (urineProteinValue.equalsIgnoreCase("test_not_conducted"))
+                    if (urineProteinValue.equalsIgnoreCase("not_tested"))
                         tv.setText("-");
                     else
                         tv.setText(urineProteinValue);
@@ -566,7 +566,7 @@ public class PartographMonitoringActivity extends AppCompatActivity {
                     int resID = getResources().getIdentifier("acetone_" + xValue, "id", getPackageName());
                     TextView tv = findViewById(resID);
                     String urineAcetoneValue = urineAcetone.getValue();
-                    if (urineAcetoneValue.equalsIgnoreCase("test_not_conducted"))
+                    if (urineAcetoneValue.equalsIgnoreCase("not_tested"))
                         tv.setText("-");
                     else
                         tv.setText(urineAcetoneValue);
