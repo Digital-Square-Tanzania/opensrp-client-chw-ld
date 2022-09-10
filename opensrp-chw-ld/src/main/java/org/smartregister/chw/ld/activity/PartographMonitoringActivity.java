@@ -536,14 +536,18 @@ public class PartographMonitoringActivity extends AppCompatActivity {
     private void setUrineProtein() {
         List<PartographDataObject> urineProteinList = LDDao.getPartographUrineProteinList(baseEntityId);
         if (urineProteinList != null && !urineProteinList.isEmpty()) {
-            for (PartographDataObject temperature : urineProteinList) {
+            for (PartographDataObject urineProtein : urineProteinList) {
                 try {
-                    float x = (temperature.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
+                    float x = (urineProtein.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
                     int xValue = Math.round(x);
 
                     int resID = getResources().getIdentifier("protein_" + xValue, "id", getPackageName());
                     TextView tv = findViewById(resID);
-                    tv.setText(String.valueOf(temperature.getValue()));
+                    String urineProteinValue = urineProtein.getValue();
+                    if (urineProteinValue.equalsIgnoreCase("test_not_conducted"))
+                        tv.setText("-");
+                    else
+                        tv.setText(urineProteinValue);
                 } catch (Exception e) {
                     Timber.e(e);
                 }
@@ -552,16 +556,20 @@ public class PartographMonitoringActivity extends AppCompatActivity {
     }
 
     private void setUrineAcetone() {
-        List<PartographDataObject> temperatureList = LDDao.getPartographUrineAcetoneList(baseEntityId);
-        if (temperatureList != null && !temperatureList.isEmpty()) {
-            for (PartographDataObject temperature : temperatureList) {
+        List<PartographDataObject> urineAcetoneList = LDDao.getPartographUrineAcetoneList(baseEntityId);
+        if (urineAcetoneList != null && !urineAcetoneList.isEmpty()) {
+            for (PartographDataObject urineAcetone : urineAcetoneList) {
                 try {
-                    float x = (temperature.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
+                    float x = (urineAcetone.getDateTime() - startTimePartographTime + partographOffset) * 1f / 3600000;
                     int xValue = Math.round(x);
 
                     int resID = getResources().getIdentifier("acetone_" + xValue, "id", getPackageName());
                     TextView tv = findViewById(resID);
-                    tv.setText(String.valueOf(temperature.getValue()));
+                    String urineAcetoneValue = urineAcetone.getValue();
+                    if (urineAcetoneValue.equalsIgnoreCase("test_not_conducted"))
+                        tv.setText("-");
+                    else
+                        tv.setText(urineAcetoneValue);
                 } catch (Exception e) {
                     Timber.e(e);
                 }
