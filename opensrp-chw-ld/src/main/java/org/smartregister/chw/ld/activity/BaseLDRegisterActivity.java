@@ -135,7 +135,7 @@ public class BaseLDRegisterActivity extends BaseRegisterActivity implements LDRe
 
     @MenuRes
     public int getMenuResource() {
-        return R.menu.bottom_nav_family_menu;
+        return R.menu.bottom_nav_ld_menu;
     }
 
     @Override

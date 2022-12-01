@@ -59,6 +59,8 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
     protected View view_family_row;
     protected View view_positive_date_row;
     protected RelativeLayout rlLastVisit;
+    protected RelativeLayout rlRegistrationDetails;
+    protected RelativeLayout rlLdDetails;
     protected RelativeLayout rlUpcomingServices;
     protected RelativeLayout rlFamilyServicesDue;
     protected RelativeLayout visitStatus;
@@ -125,6 +127,8 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
         tvFamilyStatus = findViewById(R.id.textview_family_has);
         textview_positive_date = findViewById(R.id.textview_positive_date);
         rlLastVisit = findViewById(R.id.rlLastVisit);
+        rlRegistrationDetails = findViewById(R.id.rlRegistrationDetails);
+        rlLdDetails = findViewById(R.id.rlLdDetails);
         rlUpcomingServices = findViewById(R.id.rlUpcomingServices);
         rlFamilyServicesDue = findViewById(R.id.rlFamilyServicesDue);
         rlLDPositiveDate = findViewById(R.id.rlLDPositiveDate);
@@ -154,6 +158,8 @@ public class BaseLDProfileActivity extends BaseProfileActivity implements LDProf
         textViewRecordAncNotDone.setOnClickListener(this);
         textViewVisitDoneEdit.setOnClickListener(this);
         rlLastVisit.setOnClickListener(this);
+        rlRegistrationDetails.setOnClickListener(this);
+        rlLdDetails.setOnClickListener(this);
         rlUpcomingServices.setOnClickListener(this);
         rlFamilyServicesDue.setOnClickListener(this);
         rlLDPositiveDate.setOnClickListener(this);
