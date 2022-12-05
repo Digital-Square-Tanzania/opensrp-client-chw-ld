@@ -10,6 +10,7 @@ import org.jetbrains.annotations.Nullable;
 import org.json.JSONObject;
 import org.smartregister.chw.ld.LDLibrary;
 import org.smartregister.chw.ld.contract.BaseLDVisitContract;
+import org.smartregister.chw.ld.dao.LDDao;
 import org.smartregister.chw.ld.domain.MemberObject;
 import org.smartregister.chw.ld.domain.Visit;
 import org.smartregister.chw.ld.domain.VisitDetail;
@@ -258,8 +259,14 @@ public class BaseLDVisitInteractor implements BaseLDVisitContract.Interactor {
 
     protected void deleteProcessedVisit(String visitID, String baseEntityId) {
         // check if the event
+        AllSharedPreferences allSharedPreferences = LDLibrary.getInstance().context().allSharedPreferences();
         Visit visit = visitRepository().getVisitByVisitId(visitID);
         if (visit == null || !visit.getProcessed()) return;
+
+        Event processedEvent = LDDao.getEventByFormSubmissionId(visit.getFormSubmissionId());
+        if (processedEvent == null) return;
+
+        deleteSavedEvent(allSharedPreferences, baseEntityId, processedEvent.getEventId(), processedEvent.getFormSubmissionId(), "event");
     }
 
     protected void deleteSavedEvent(AllSharedPreferences allSharedPreferences, String baseEntityId, String eventId, String formSubmissionId, String type) {
