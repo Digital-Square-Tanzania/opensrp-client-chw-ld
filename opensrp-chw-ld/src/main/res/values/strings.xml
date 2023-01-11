@@ -16,6 +16,7 @@
     <string name="return_to_previous_page">Return all LD Clients</string>
     <string name="last_visit_40_days_ago">Last visit %1$s ago</string>
     <string name="view_medical_history">View medical history</string>
+    <string name="view_registration_details">View registration details</string>
     <string name="call_no_number_provided">(no number provided)</string>
     <string name="view_upcoming_services">View upcoming services</string>
     <string name="family_has_nothing_due">Family has nothing due</string>
@@ -63,5 +64,7 @@
     <string name="partograph_para">Para : {0}</string>
     <string name="partograph_admission_date">Admission Date : {0}</string>
     <string name="partograph_admission_time">Admission Time : {0}</string>
+    <string name="discharged_clients">Discharged Clients</string>
+    <string name="view_ld_details">View Details Summary</string>
 
 </resources>

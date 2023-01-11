@@ -26,10 +26,85 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rlLastVisit"
+            android:id="@+id/rlRegistrationDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/view_notification_and_referral_row"
+            android:background="@drawable/list_item_background_selctor"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/tick_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_baseline_how_to_reg_24" />
+
+            <ImageView
+                android:id="@+id/iv_last_visit_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/row_goto" />
+
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/ivViewRegistrationDetailsArrow"
+                style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/tick_image"
+                android:text="@string/view_registration_details"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/black" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlLdDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rlRegistrationDetails"
+            android:background="@drawable/list_item_background_selctor"
+            android:visibility="gone"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/tick_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_baseline_notes_24" />
+
+            <ImageView
+                android:id="@+id/iv_last_visit_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/row_goto" />
+
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/ivViewRegistrationDetailsArrow"
+                style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/tick_image"
+                android:text="@string/view_ld_details"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/black" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlLastVisit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rlLdDetails"
             android:background="@drawable/list_item_background_selctor"
             android:padding="20dp"
             android:visibility="visible">
@@ -270,7 +345,14 @@
             android:layout_height="1px"
             android:layout_below="@+id/notification_and_referral_row"
             android:background="@color/light_grey"
-            android:visibility="gone" />
+            android:visibility="visible" />
+
+        <View
+            android:id="@+id/view_registration_details_row"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/rlRegistrationDetails"
+            android:background="@color/light_grey" />
 
         <View
             android:id="@+id/view_last_visit_row"

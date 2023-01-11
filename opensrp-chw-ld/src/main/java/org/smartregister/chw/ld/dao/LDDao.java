@@ -1,5 +1,8 @@
 package org.smartregister.chw.ld.dao;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.smartregister.chw.ld.LDLibrary;
 import org.smartregister.chw.ld.domain.MemberObject;
 import org.smartregister.chw.ld.domain.PartographChartBloodPressureObject;
 import org.smartregister.chw.ld.domain.PartographChartObject;
@@ -7,6 +10,7 @@ import org.smartregister.chw.ld.domain.PartographContractionObject;
 import org.smartregister.chw.ld.domain.PartographDataObject;
 import org.smartregister.chw.ld.domain.PartographOxytocinObject;
 import org.smartregister.chw.ld.util.Constants;
+import org.smartregister.clientandeventmodel.Event;
 import org.smartregister.dao.AbstractDao;
 import org.smartregister.util.Utils;
 
@@ -826,5 +830,19 @@ public class LDDao extends AbstractDao {
         if (res != null && res.size() > 0)
             return res;
         return null;
+    }
+
+    public static Event getEventByFormSubmissionId(String formSubmissionId) {
+        String sql = "select json from event where formSubmissionId = '" + formSubmissionId + "'";
+
+        DataMap<Event> dataMap = c -> {
+            try {
+                return LDLibrary.getInstance().getEcSyncHelper().convert(new JSONObject(getCursorValue(c, "json")), Event.class);
+            } catch (JSONException e) {
+                Timber.e(e);
+            }
+            return null;
+        };
+        return AbstractDao.readSingleValue(sql, dataMap);
     }
 }

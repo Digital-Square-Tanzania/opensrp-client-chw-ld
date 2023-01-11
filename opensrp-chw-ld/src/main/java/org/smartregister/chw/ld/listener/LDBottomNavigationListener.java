@@ -24,8 +24,8 @@ public class LDBottomNavigationListener extends BottomNavigationListener {
 
         if (item.getItemId() == R.id.action_family) {
             baseRegisterActivity.switchToBaseFragment();
-        } else if (item.getItemId() == R.id.action_scan_qr) {
-            baseRegisterActivity.startQrCodeScanner();
+        } else if (item.getItemId() == R.id.action_discharged_clients) {
+            baseRegisterActivity.switchToFragment(1);
         }
 
         return true;
