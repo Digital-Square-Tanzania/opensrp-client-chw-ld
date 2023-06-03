@@ -3,8 +3,7 @@
     package="org.smartregister.ld">
 
     <application>
-        <activity android:name="org.smartregister.chw.ld.activity.PartographMonitoringActivity"
-            android:screenOrientation="landscape"/>
+        <activity android:name="org.smartregister.chw.ld.activity.PartographMonitoringActivity" />
         <activity android:name="org.smartregister.chw.ld.activity.BaseLabourProgressViewActivity" />
     </application>
 
