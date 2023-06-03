@@ -170,7 +170,7 @@ allprojects {
 
             name = "GitHubPackages"
 
-            url = uri("https://maven.pkg.github.com/SoftmedTanzania/MPAndroidChart")
+            url = uri("https://maven.pkg.github.com/Digital-Square-Tanzania/MPAndroidChart")
             credentials {
                 username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
                 password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
